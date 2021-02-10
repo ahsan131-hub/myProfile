@@ -240,7 +240,9 @@ figure:hover .code{
         font-size: .8em;
         text-align: center;
     }
-     #contact a{
        
-    }
+#project h2, #courses h2{
+    font-size: 1.5em;   
+}
+
 }
