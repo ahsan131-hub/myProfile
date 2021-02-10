@@ -1,0 +1,246 @@
+* {
+    box-sizing: border-box;
+  }
+body{
+    background-color: #3AAFA9;
+    color :#17252A;
+    font-family: sans-serif;
+    margin: 0;
+    
+}
+#navbar{
+    background-color: #2B7A78;   
+    display: flex;
+    justify-content: flex-end;
+    position: fixed;
+    width: 100%;
+    
+
+}
+
+
+#nav-list {
+    list-style-type: none;
+    text-transform: uppercase;
+    font-size: 1.2em;
+    display: flex;
+    justify-content: flex-end;
+   
+  
+}
+
+
+
+#nav-list a{
+    text-decoration: none;   
+    color: #17252A;
+    border-radius: 5px;
+    margin: 10px;
+  
+
+}
+
+#nav-list li:hover{
+    animation-name: nav-item-animation;
+    animation-duration: 1s;
+    animation-fill-mode: forwards;
+}
+@keyframes nav-item-animation{
+    100%{
+        background-color:#DEF2F1;
+    }
+}
+
+
+
+#name-sec{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: #17252A;
+    flex-direction: column;
+    height: 100vh;
+    color: #3AAFA9;
+}
+#name-sec p{
+    font-style: italic;
+    font-size: 1.5em;
+    color: #DEF2F1;
+}
+#name-sec h1{  
+    font-size: 3.5em;
+    margin-bottom: 0px;
+}
+#project{
+    text-align: center;
+    margin: 20px;
+}
+#courses{
+    text-align: center;
+    margin: 20px;
+}
+
+
+#project h2, #courses h2{
+    font-size: 3em;   
+    text-align: center;
+    margin-bottom: 0px;
+}
+
+#project button  ,#courses button{
+    font-size: 1.2em;
+    background-color: #17252A;
+    text-align: center;
+    border: none;
+    color: #DEF2F1;
+    border-radius: 2px;
+    margin-top: 40px;
+    width: 125px;
+    height: 35px;
+}
+
+#project hr  ,#courses hr{
+    width: 75%;
+    color: #17252A;
+    margin-bottom: 40px;
+}
+
+.container{
+    display: grid;
+    grid-template-columns: repeat(auto-fit,minmax(250px,1fr));
+    justify-content: center;
+    grid-template-rows:repeat(auto-fit,minmax(250px,1fr));
+    grid-gap : 20px 30px;
+    justify-content: center;
+}
+
+figure{
+    margin: 0;
+    background-color: #17252A;
+    color: #DEF2F1;
+    border-radius: 2px;
+   
+    box-shadow: 1px 1px 2px rgba(0, 0, 0, 0.5);
+}
+figcaption{
+    display: flex;
+    justify-content: center;
+    font-size: 1em;
+}
+
+img{
+    width: 100%;
+    height: calc(100% - 2.8rem);
+    object-fit: cover;
+    border-radius: 2px;
+}
+
+#contact{
+    height: 80vh;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    background-color: #17252A;   
+    color: #DEF2F1;
+}
+.contact-header h2{
+    font-size: 3.5em;
+    margin-bottom: 0px;
+}
+
+.contact-header p{
+    font-size: 1.5em;
+    font-style: italic;
+    margin-left: 10px;
+    margin-top: 5px;
+    color: #2B7A78;
+}
+.contact-methods{
+    
+  
+   
+}
+#project a ,#courses a{
+    text-decoration: none;
+    color: #feffff;
+}
+.contact-methods a{
+    display:inline-table;
+    font: italic;
+    font-size: 1.1em;
+    margin: 15px;
+    text-decoration: none;
+    color: #DEF2F1;
+   
+    transition: transform 0.3s ease-out;
+    
+}
+
+footer{
+    display: flex;
+    justify-content: center;
+    font-size: 1.1em;
+}
+
+.contact-methods a:hover{
+    transform: translateY(8px);
+}
+
+.code{
+    font-size: 2em;
+    transition: color .3s ease-out;
+    color: #17252A;
+}
+figure:hover .code{
+    color:  #ff7f50;
+}
+
+#btn-show-all i{
+    transition: transform .3s ease-out;
+}
+
+#btn-show-all:hover i{
+    transform: translateX(3px);
+ 
+    
+    color: #17252A;
+}
+#btn-show-all:hover{
+    background-color: #feffff;
+    color: #17252A;
+}
+
+
+@media (max-width: 600px) {
+    #navbar{
+        font-size:.8em;
+        justify-content: center; 
+    }
+    
+    #nav-list a{
+        margin-left: 0px;
+        text-align: center;
+    }
+  #name-sec p{
+   
+    font-size: 1.2em;
+   
+}
+#name-sec h1{  
+    font-size: 2em;
+    margin-bottom: 0px;
+    
+}
+    #name-sec{
+        text-align: center;
+    }
+    #contact{
+        font-size: .8em;
+        text-align: center;
+    }
+     #contact a{
+       
+    }
+}
