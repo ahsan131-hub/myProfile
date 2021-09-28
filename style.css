@@ -248,4 +248,7 @@ figure:hover .code {
   #courses h2 {
     font-size: 1.5em;
   }
+  #nav-list {
+    font-size: 8px;
+  }
 }
