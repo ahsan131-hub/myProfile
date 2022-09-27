@@ -202,7 +202,18 @@ footer {
   transition: color 0.3s ease-out;
   color: #17252a;
 }
+.work-des{
+  /* list-style: none; */
+  font-size: medium;
+  text-align: start;
+  line-height: 2;
+  word-wrap: normal;
+}
+.work-heading{
+  font: 200;
+  font-size: xx-large;
 
+}
 figure:hover .code {
   color: #ff7f50;
 }
