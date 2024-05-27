@@ -6,15 +6,15 @@ html {
   scroll-behavior: smooth;
 }
 body {
-  /* background-color: #3aafa9; */
-  /* color: #17252a; */
+  background-color: #3aafa9 !important;
+  color: #17252a;
   background-color: #ffff;
   font-family: sans-serif;
   margin: 0;
 }
 
 #navbar {
-  /* background-color: #2b7a78; */
+  background-color: #2b7a78 !important;
   background-color: #ffff;
   display: flex;
   justify-content: flex-end;
