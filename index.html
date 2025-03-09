@@ -1,467 +1,273 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Muhammad Ahsan - Full-Stack Engineer</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css"
+      rel="stylesheet"
+    />
+    <style>
+      /* Custom animations */
+      @keyframes fadeIn {
+        from {
+          opacity: 0;
+          transform: translateY(20px);
+        }
+        to {
+          opacity: 1;
+          transform: translateY(0);
+        }
+      }
+      .animate-fade-in {
+        animation: fadeIn 0.8s ease-out;
+      }
+    </style>
+  </head>
+  <body class="bg-gray-50 text-gray-900 font-sans">
+    <!-- Navbar -->
+    <nav class="fixed top-0 w-full bg-white shadow-md z-50">
+      <div
+        class="container mx-auto px-6 py-4 flex justify-between items-center"
+      >
+        <a
+          href="#"
+          class="text-2xl font-bold text-gray-800 hover:text-blue-600 transition duration-300"
+          >Muhammad Ahsan</a
+        >
+        <ul class="flex space-x-6">
+          <li>
+            <a
+              href="#about"
+              class="text-gray-700 hover:text-blue-600 transition duration-300"
+              >About</a
+            >
+          </li>
+          <li>
+            <a
+              href="#experience"
+              class="text-gray-700 hover:text-blue-600 transition duration-300"
+              >Experience</a
+            >
+          </li>
+          <li>
+            <a
+              href="#projects"
+              class="text-gray-700 hover:text-blue-600 transition duration-300"
+              >Projects</a
+            >
+          </li>
+          <li>
+            <a
+              href="#contact"
+              class="text-gray-700 hover:text-blue-600 transition duration-300"
+              >Contact</a
+            >
+          </li>
+          <li>
+            <a
+              href="./resource/NEW_MuhammadAhsan_CV.pdf"
+              download
+              class="bg-blue-600 text-white px-4 py-2 rounded-lg hover:bg-blue-700 transition duration-300"
+              >Download CV</a
+            >
+          </li>
+        </ul>
+      </div>
+    </nav>
 
-<head>
-    <title>Muhammad Ahsan</title>
-    <meta charset="UTF-8">
-    <link rel="stylesheet" href="https://pro.fontawesome.com/releases/v5.10.0/css/all.css" integrity="sha384-AYmEC3Yw5cVb3ZcuHtOA93w35dYTsvhLPVnYs9eStHfGJvOvKxVfELGroGkvsg+p" crossorigin="anonymous">
-    <link rel="stylesheet" href="style.css">
-    
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- Hero Section -->
+    <section
+      id="about"
+      class="min-h-screen flex flex-col justify-center items-center text-center bg-white animate-fade-in"
+    >
+      <h1 class="text-5xl md:text-6xl font-bold text-gray-800 mb-4">
+        Muhammad Ahsan
+      </h1>
+      <p class="text-xl md:text-2xl text-gray-600 mb-8">
+        Full-stack engineer with 4+ years of experience building scalable web
+        applications.
+      </p>
+      <div class="mt-8">
+        <a
+          href="#experience"
+          class="bg-blue-600 text-white px-8 py-3 rounded-lg hover:bg-blue-700 transition duration-300"
+          >View My Work</a
+        >
+      </div>
+    </section>
 
-    <link rel="icon" href="/favicon.ico" type="image/x-icon">
-    <!-- Additional favicon formats for modern browsers -->
-    <link rel="icon" href="/favicon-16x16.png" type="image/png">
-    <!-- <link rel="icon" href="/favicon.svg" type="image/svg+xml"> -->
-
-</head>
-
-<body>
-    <header>
-        <nav id=navbar>
-            <ul id="nav-list">
-                <li><a href="#name-sec">About</a></li>
-                <li><a href="#project">Work</a></li>
-                <li><a href="#courses">Certificates</a></li>
-                <li><a href="#contact">Contact</a></li>
-                <li><a href="./resource/NEW_MuhammadAhsan_CV.pdf" download>Download CV</a></li>
-
+    <!-- Work Experience Section -->
+    <section id="experience" class="py-20 bg-gray-50">
+      <div class="container mx-auto px-6">
+        <h2 class="text-4xl font-bold text-center text-gray-800 mb-12">
+          Work Experience
+        </h2>
+        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+          <!-- CivilPleet -->
+          <div
+            class="bg-white p-6 rounded-lg shadow-md hover:shadow-lg transition duration-300"
+          >
+            <h3 class="text-2xl font-bold text-gray-800 mb-4">
+              Software Engineer - CivilPleet
+            </h3>
+            <ul class="text-gray-600 space-y-2">
+              <li>
+                Built internal tools and dashboards using Next.js and Python,
+                reducing manual reporting time by 30%.
+              </li>
+              <li>
+                Managed infrastructure using Kubernetes, ArgoCD, and Traefik,
+                improving deployment efficiency by 25%.
+              </li>
+              <li>
+                Provided IT support to 50+ colleagues, resolving 95% of system
+                issues within 2 hours.
+              </li>
             </ul>
-        </nav>
-    </header>
-
-
-    <section id="name-sec">
-        <h1>Muhammad Ahsan</h1>
-        <p>2 years of extensive experience in building web application.</p>
-    </section>
-
-    <section id="project">
-        <h2>Work Experience</h2>
-        <hr>
-        <div class="container">
-            <figure>
-                <a href="https://www.linkedin.com/company/cygnis-media-inc." target="_blank">
-                    <h3 class="work-heading">Full-Stack Engineer</h3>
-                    <ul class="work-des">
-                        <li>Design and develop Express.js and Sequelize to create a scalable and efficient backend server.</li>
-                        <li>Utilizing Next.js and Tailwind CSS to create robust and responsive UI.</li>
-                    </ul>
-                    <figcaption>
-                        <span class="code"> &lt;	&nbsp;</span>Cygnis Media: (On-site)<br>
-                        <span class="code"> 	&nbsp;&#47;&gt;</span>
-                    </figcaption>
-                </a>
-            </figure>
-            <figure>
-                <a href="https://secomind.ai/" target="_blank">
-                    <h3 class="work-heading">Backend Engineer</h3>
-                    <ul class="work-des">
-                        <li>Developed the backend of all the features.</li>
-                        <li>Building reusable components and integrating with frontend(NextJS,ReactJs).</li>
-                        <li>User Authentication using Oauth using JWT/Cookie.</li>
-                        <li>Scheduling events using Google Calendar Apis and agendaJobs.</li>
-                        <li>Handling emails using SendGrid</li>
-                    </ul>
-                    <figcaption>
-                        <span class="code"> &lt;	&nbsp;</span>Secomind.Ai: (Remote)<br>
-                        <span class="code"> 	&nbsp;&#47;&gt;</span>
-                    </figcaption>
-                </a>
-            </figure>
-            <figure>
-                <a href="https://www.swoopcart.com/" target="_blank">
-                    <h3 class="work-heading">Backend Engineer</h3>
-                    <ul class="work-des">
-                        <li>Developed and
-                            maintained all the server-
-                            side network components
-                            along with ensuring
-                            optimal performance of
-                            the central database and
-                            responsiveness to front-
-                            end requests..</li>
-                        <li>Used firebase for OTP authentication push down notifications.</li>
-                        <li>Integrated JazzCash Api for payment transactions.</li>
-                        
-                        
-                    </ul>
-                    <figcaption>
-                        <span class="code"> &lt;	&nbsp;</span>Swoop Cart Technologies: (Remote)<br>
-                        <span class="code"> 	&nbsp;&#47;&gt;</span>
-                    </figcaption>
-                </a>
-            </figure>
-
+            <p class="text-gray-500 mt-4">Berlin, Germany</p>
+          </div>
+          <!-- Startrum -->
+          <div
+            class="bg-white p-6 rounded-lg shadow-md hover:shadow-lg transition duration-300"
+          >
+            <h3 class="text-2xl font-bold text-gray-800 mb-4">
+              Junior Full-Stack Engineer - Startrum
+            </h3>
+            <ul class="text-gray-600 space-y-2">
+              <li>
+                Developed AI applications using GPT models, increasing user
+                engagement by 25%.
+              </li>
+              <li>
+                Built a full-stack web platform with Node.js, Next.js, and
+                MySQL, serving 1K+ monthly active users.
+              </li>
+            </ul>
+            <p class="text-gray-500 mt-4">startrum.com</p>
+          </div>
+          <!-- Secomind.Ai -->
+          <div
+            class="bg-white p-6 rounded-lg shadow-md hover:shadow-lg transition duration-300"
+          >
+            <h3 class="text-2xl font-bold text-gray-800 mb-4">
+              Junior Backend Engineer - Secomind.Ai
+            </h3>
+            <ul class="text-gray-600 space-y-2">
+              <li>
+                Implemented a round-robin scheduling system used by 500+ teams,
+                reducing scheduling conflicts by 40%.
+              </li>
+              <li>
+                Designed a GraphQL API with TypeScript and MongoDB, improving
+                query response time by 15%.
+              </li>
+            </ul>
+            <p class="text-gray-500 mt-4">Secomind.ai</p>
+          </div>
         </div>
-        <!-- <button id="btn-show-all">Show All <i class="fas fa-chevron-right"></i></button> -->
+      </div>
     </section>
 
-    <section id="project">
-        <h2>Projects</h2>
-        <hr>
-        <div class="container">
-
-            <figure>
-                <a href="https://github.com/ahsan131-hub/bots-hub-frontend" target="_blank">
-                    <img src="./resource/coming-soon.jpg" alt="bots-hub">
-                    <figcaption>
-                        <span class="code"> &lt;	&nbsp;</span>AI-Driven Bots Hub<br>
-                        <span class="code"> 	&nbsp;&#47;&gt;</span>
-                    </figcaption>
-                </a>
-            </figure>
-            <figure>
-                <a href="https://github.com/ahsan131-hub/metaroom-client" target="_blank">
-                    <img src="./resource/metaroom.png" alt="MetaRoom">
-                    <figcaption>
-                        <span class="code"> &lt;	&nbsp;</span>MetaRoom<br>
-                        <span class="code"> 	&nbsp;&#47;&gt;</span>
-                    </figcaption>
-                </a>
-            </figure>
-
-            <figure>
-                <a href="https://github.com/ahsan131-hub/Tweets-Sentimental-Analysis-System/tree/main" target="_blank">
-                    <img src="https://github.com/ahsan131-hub/Tweets-Sentimental-Analysis-System/blob/main/demo.gif?raw=true" alt="Tweets-Sentimental-Analysis-System">
-                    <figcaption>
-                        <span class="code"> &lt;	&nbsp;</span>Tweets-Sentimental-Analysis-System<br>
-                        <span class="code"> 	&nbsp;&#47;&gt;</span>
-                    </figcaption>
-                </a>
-            </figure>
-
-            
-
-            <figure>
-                <a href="https://movie-app-131.netlify.app" target="_blank">
-                    <img src="./resource/Movie-App.png" alt="React--Movie-App">
-                    <figcaption>
-                        <span class="code"> &lt;	&nbsp;</span>Movie-App (REACT) <br>
-                        <span class="code"> 	&nbsp;&#47;&gt;</span>
-                    </figcaption>
-                </a>
-            </figure>
-
-            <figure>
-                <a href="https://todo-mern-131.netlify.app/" target="_blank">
-                    <img src="./resource/TODO-MERN.png" alt="TODO-MERN">
-                    <figcaption>
-                        <span class="code"> &lt;	&nbsp;</span>Todo Application (MERN) <br>
-                        <span class="code"> 	&nbsp;&#47;&gt;</span>
-                    </figcaption>
-                </a>
-            </figure>
-
-            <figure>
-                <a href="https://signin-131.netlify.app/#" target="_blank">
-                    <img src="./resource/SIGN_IN_DJANGO.png" alt="Log IN /Log Out ">
-                    <figcaption>
-                        <span class="code"> &lt;	&nbsp;</span>Log IN/Log Out(Django and React) <br>
-                        <span class="code"> 	&nbsp;&#47;&gt;</span>
-                    </figcaption>
-                </a>
-            </figure>
-
-            <figure>
-                <a href="https://github.com/ahsan131-hub/E-testing" target="_blank">
-                    <img src="./resource/e-test.jpg" alt="E-testing service">
-                    <figcaption>
-                        <span class="code"> &lt;	&nbsp;</span> Online Testing System<br>(Django, Javascript)
-                        <span class="code"> 	&nbsp;&#47;&gt;</span>
-                    </figcaption>
-                </a>
-            </figure>
-
-            <figure>
-                <a href="https://github.com/ahsan131-hub/DataEncoder" target="_blank">
-                    <img src="./resource/huffman.jpg" alt="HuffMan">
-                    <figcaption>
-                        <span class="code">&lt;	&nbsp;</span> HuffMan Encoder <br>(Data Structures,java)
-                        <span class="code">	&nbsp;&#47;&gt;</span>
-                    </figcaption>
-                </a>
-            </figure>
-
-
-            <figure>
-                <a href="https://github.com/ahsan131-hub/TransportBussinessManagement/blob/main/README.md" target="_blank">
-                    <img src="./resource/TMS.jpg" alt="TransportBussinessManagement">
-                    <figcaption>
-                        <span class="code">&lt;	&nbsp;</span> Transport Bussiness Management System (java)<span class="code">	&nbsp;&#47;&gt;</span>
-                    </figcaption>
-                </a>
-            </figure>
-
-            <!-- new from here 6 may 21 -->
-
-            <figure>
-                <a href="https://sign-in-up-131.netlify.app" target="_blank">
-                    <img src="./resource/React_SignIn.png" alt="React Login Page">
-                    <figcaption>
-                        <span class="code">&lt;	&nbsp;</span> React Login Page (REACT)<span class="code">	&nbsp;&#47;&gt;</span>
-                    </figcaption>
-                </a>
-            </figure>
-
-            <figure>
-                <a href="https://ahsan131-hub.github.io/CurrencyExchange/" target="_blank">
-                    <img src="currencyExcahnge.png" alt="currencyExcahnge">
-                    <figcaption>
-                        <span class="code">&lt;	&nbsp;</span> Currency Exchange (JavaScript+API)<span class="code">	&nbsp;&#47;&gt;</span>
-                    </figcaption>
-                </a>
-            </figure>
-
-            <figure>
-                <a href="https://ahsan131-hub.github.io/rockPapperScissor/" target="_blank">
-                    <img src="./resource/rockPaperScissor.png" alt="rockPapperScissor">
-                    <figcaption>
-                        <span class="code">&lt;	&nbsp;</span> Rock Paper Scissor (Javascript)<span class="code">	&nbsp;&#47;&gt;</span>
-                    </figcaption>
-                </a>
-            </figure>
-
-
-
-            <figure>
-                <a href="https://ahsan131-hub.github.io/myLandingPage/" target="_blank">
-                    <img src="./resource/myLandingPage.png" alt="currencyExcahnge">
-                    <figcaption>
-                        <span class="code">&lt;	&nbsp;</span> Landing Page (JavaScript+HTML +CSS)<span class="code">	&nbsp;&#47;&gt;</span>
-                    </figcaption>
-                </a>
-            </figure>
-
-            <figure>
-                <a href="https://ahsan131-hub.github.io/RandomUser/" target="_blank">
-                    <img src="./resource/RandomUser.png" alt="RandomUser">
-                    <figcaption>
-                        <span class="code">&lt;	&nbsp;</span> Random User(JavaScript+API)<span class="code">	&nbsp;&#47;&gt;</span>
-                    </figcaption>
-                </a>
-            </figure>
-
-
-
-
-            <figure>
-                <a href="https://ahsan131-hub.github.io/booking-seat-cineama/" target="_blank">
-                    <img src="./resource/cinemaSeatBooking.png" alt="Booking Seat Cineama">
-                    <figcaption>
-                        <span class="code">&lt;	&nbsp;</span> Cineama Seat Booking (Javascript)<span class="code">	&nbsp;&#47;&gt;</span>
-                    </figcaption>
-                </a>
-            </figure>
-
-            <!-- end new 6 may 21 -->
-
-
-
-
-            <figure>
-                <a href="https://ahsan131-hub.github.io/tribute-page/index.html" target="_blank">
-                    <img src="./resource/tribute.jpg" alt="">
-
-                    <figcaption>
-                        <span class="code">&lt;	&nbsp;</span> Tribute Page<br>(HTML and CSS)
-
-                        <span class="code">	&nbsp;&#47;&gt;</span>
-                    </figcaption>
-                </a>
-
-            </figure>
-
+    <!-- Projects Section -->
+    <section id="projects" class="py-20 bg-white">
+      <div class="container mx-auto px-6">
+        <h2 class="text-4xl font-bold text-center text-gray-800 mb-12">
+          Projects
+        </h2>
+        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+          <!-- Bots-Hub -->
+          <div
+            class="bg-gray-50 p-6 rounded-lg shadow-md hover:shadow-lg transition duration-300"
+          >
+            <h3 class="text-2xl font-bold text-gray-800 mb-4">Bots-Hub</h3>
+            <p class="text-gray-600 mb-4">
+              Platform for building custom bots using Nest.js and OpenAI.
+            </p>
+            <a
+              href="https://github.com/ahsan131-hub/bots-hub-frontend"
+              target="_blank"
+              class="text-blue-600 hover:text-blue-700 transition duration-300"
+              >View Project →</a
+            >
+          </div>
+          <!-- Metaroom -->
+          <div
+            class="bg-gray-50 p-6 rounded-lg shadow-md hover:shadow-lg transition duration-300"
+          >
+            <h3 class="text-2xl font-bold text-gray-800 mb-4">Metaroom</h3>
+            <p class="text-gray-600 mb-4">
+              E-learning solution with AWS-hosted video streaming using Next.js
+              and TypeScript.
+            </p>
+            <a
+              href="https://github.com/ahsan131-hub/metaroom-client"
+              target="_blank"
+              class="text-blue-600 hover:text-blue-700 transition duration-300"
+              >View Project →</a
+            >
+          </div>
+          <!-- TSAS -->
+          <div
+            class="bg-gray-50 p-6 rounded-lg shadow-md hover:shadow-lg transition duration-300"
+          >
+            <h3 class="text-2xl font-bold text-gray-800 mb-4">TSAS</h3>
+            <p class="text-gray-600 mb-4">
+              Tweet sentiment analysis system using Python and Roberta NLP.
+            </p>
+            <a
+              href="https://github.com/ahsan131-hub/Tweets-Sentimental-Analysis-System"
+              target="_blank"
+              class="text-blue-600 hover:text-blue-700 transition duration-300"
+              >View Project →</a
+            >
+          </div>
         </div>
-        <!-- <button id="btn-show-all">Show All <i class="fas fa-chevron-right"></i></button> -->
+      </div>
     </section>
 
-    <section id="courses">
-        <h2>Certifications</h2>
-        <hr>
-
-        <div class="container">
-
-            <figure>
-                <a href="https://www.coursera.org/account/accomplishments/certificate/7LQJCR83HGLQ" target="_blank">
-                    <img src="./resource/nn-deep-learning.png" alt="certificate">
-                    <figcaption>
-                        <span class="code">&lt;	&nbsp;</span>Neural Networks and Deep Learning<span class="code">	&nbsp;&#47;&gt;</span>
-                    </figcaption>
-                </a>
-            </figure>
-            <figure>
-                <a href="https://www.coursera.org/account/accomplishments/certificate/BXS9BY944PJZ" target="_blank">
-                    <img src="./resource/supervised machine learning.png" alt="certificate">
-                    <figcaption>
-                        <span class="code">&lt;	&nbsp;</span>Supervised Machine Learning: Regression and
-                        Classification<span class="code">	&nbsp;&#47;&gt;</span>
-                    </figcaption>
-                </a>
-            </figure>
-            <figure>
-                <a href="https://coursera.org/share/2a7f96f157abd56100541f11f9d524d6" target="_blank">
-                    <img src="./resource/k8s.png" alt="certificate">
-                    <figcaption>
-                        <span class="code">&lt;	&nbsp;</span>Introduction to Containers w/ Docker, Kubernetes
-                        & OpenShift<span class="code">	&nbsp;&#47;&gt;</span>
-                    </figcaption>
-                </a>
-            </figure>
-
-            <figure>
-                <a href="https://courses.edx.org/certificates/d5d873fd6acf42c796cf0980af0635da" target="_blank">
-                    <img src="./resource/nodejsReactcertificate.png" alt="certificate">
-                    <figcaption>
-                        <span class="code">&lt;	&nbsp;</span> Cloud Applications with Node.js and React <span class="code">	&nbsp;&#47;&gt;</span>
-                    </figcaption>
-                </a>
-            </figure>
-
-            <figure>
-                <a href="https://courses.edx.org/certificates/671feb72eda04f369d5e903d2901f270" target="_blank">
-                    <img src="./resource/cloudReact.png" alt="certificate">
-                    <figcaption>
-                        <span class="code">&lt;	&nbsp;</span> Cloud Development with HTML, CSS, and JavaScript <span class="code">	&nbsp;&#47;&gt;</span>
-                    </figcaption>
-                </a>
-            </figure>
-
-
-            <figure>
-                <a href="https://courses.edx.org/certificates/f315c7df0fb5404c90c27a69f3505983" target="_blank">
-                    <img src="./resource/cs50.jpg" alt="certificate">
-                    <figcaption>
-                        <span class="code">&lt;	&nbsp;</span> CS50W: CS50's Web Programming with Python and JavaScript <span class="code">	&nbsp;&#47;&gt;</span>
-                    </figcaption>
-                </a>
-            </figure>
-            <figure>
-                <a href="    https://www.coursera.org/account/accomplishments/certificate/LBCYBVVF6DMH" target="_blank">
-                    <img src="./resource/djangoC.jpg" alt="certificate">
-                    <figcaption>
-                        <span class="code">&lt;	&nbsp;</span> Web Application Technologies and Django<span class="code">	&nbsp;&#47;&gt;</span>
-                    </figcaption>
-                </a>
-            </figure>
-
-
-
-            <!-- new certificate 6 May 21 -->
-
-
-
-            <figure>
-                <a href="https://www.freecodecamp.org/certification/mahsan131/javascript-algorithms-and-data-structures" target="_blank">
-                    <img src="./resource/javascriptFFC.png" alt="certificate">
-                    <figcaption>
-                        <span class="code">&lt;	&nbsp;</span> JavaScript Algorithms and Data Structures <span class="code">	&nbsp;&#47;&gt;</span>
-                    </figcaption>
-                </a>
-            </figure>
-
-
-
-            <!-- end certificates -->
-            <figure>
-                <a href="    https://www.coursera.org/account/accomplishments/certificate/J458UPRBRSD8" target="_blank">
-                    <img src="./resource/datas.jpg" alt="certificate">
-                    <figcaption>
-                        <span class="code">&lt;	&nbsp;</span> Data Structures<span class="code">	&nbsp;&#47;&gt;</span>
-                    </figcaption>
-                </a>
-            </figure>
-            <figure>
-                <a href="    https://www.coursera.org/account/accomplishments/certificate/9TADYE9VZ94C" target="_blank">
-                    <img src="./resource/programing everybody.jpg" alt="certificate">
-                    <figcaption>
-                        <span class="code">&lt;	&nbsp;</span> Programming for Everybody (Getting Started with Python)<span class="code">	&nbsp;&#47;&gt;</span>
-                    </figcaption>
-                </a>
-            </figure>
-            <figure>
-                <a href="https://amigoscode.com/courses/1317178/certificate" target="_blank">
-                    <img src="./resource/github-certificate.png" alt="certificate">
-                    <figcaption>
-                        <span class="code">&lt;	&nbsp;</span> Git and GitHub<span class="code">	&nbsp;&#47;&gt;</span>
-                    </figcaption>
-                </a>
-            </figure>
-            <figure>
-                <a href="#" target="_blank">
-                    <img src="./resource/dataCamp relational database.png" alt="certificate">
-                    <figcaption>
-                        <span class="code">&lt;	&nbsp;</span> Introduction to Relational Databases in SQL <span class="code">	&nbsp;&#47;&gt;</span>
-                    </figcaption>
-                </a>
-            </figure>
-            <figure>
-                <a href="#" target="_blank">
-                    <img src="./resource/joingDatabase.png" alt="certificate">
-                    <figcaption>
-                        <span class="code">&lt;	&nbsp;</span> Introduction to SQL <span class="code">	&nbsp;&#47;&gt;</span>
-                    </figcaption>
-                </a>
-            </figure>
-
-
-
-            <figure>
-                <a href="https://coursera.org/share/28ba74bd7d8016fb5b5e4865bf836211" target="_blank">
-                    <img src="./resource/operating.jpg" alt="certificate">
-                    <figcaption>
-                        <span class="code">&lt;	&nbsp;</span> Cybersecurity Roles, Processes & Operating System Security<span class="code">	&nbsp;&#47;&gt;</span>
-                    </figcaption>
-                </a>
-            </figure>
-            <figure>
-                <a href="    https://www.coursera.org/account/accomplishments/certificate/V242SA67YX7W" target="_blank">
-                    <img src="./resource/math.jpg" alt="">
-                    <figcaption>
-                        <span class="code">&lt;	&nbsp;</span> Mathematical Thinking in Computer Science<span class="code">	&nbsp;&#47;&gt;</span>
-                    </figcaption>
-                </a>
-            </figure>
-
-            <figure>
-                <a href="    https://www.coursera.org/account/accomplishments/certificate/XBQ86GKSU55C" target="_blank">
-                    <img src="./resource/problemsolving.jpg" alt="certificate">
-                    <figcaption>
-                        <span class="code">&lt;	&nbsp;</span> Java Programming: Solving Problems with Software<span class="code">	&nbsp;&#47;&gt;</span>
-                    </figcaption>
-                </a>
-            </figure>
-
-
-            <figure>
-                <a href="    https://www.coursera.org/account/accomplishments/certificate/WHVSP5KK7RHS" target="_blank">
-                    <img src="./resource/androif.jpg" alt="certificate">
-                    <figcaption>
-                        <span class="code">&lt;	&nbsp;</span> Java for Android<span class="code">	&nbsp;&#47;&gt;</span>
-                    </figcaption>
-                </a>
-            </figure>
-
-
-
-    </section>
-
-    <section id="contact">
-        <div class="contact-header">
-            <h2>Let's work together...</h2>
-            <p> How do you take your coffee?</p>
+    <!-- Contact Section -->
+    <section id="contact" class="py-20 bg-gray-50">
+      <div class="container mx-auto px-6 text-center">
+        <h2 class="text-4xl font-bold text-gray-800 mb-8">
+          Let's Work Together
+        </h2>
+        <p class="text-gray-600 text-xl mb-12">How do you take your coffee?</p>
+        <div class="flex justify-center space-x-6">
+          <a
+            href="https://github.com/ahsan131-hub"
+            target="_blank"
+            class="text-3xl text-gray-600 hover:text-blue-600 transition duration-300"
+            ><i class="fab fa-github"></i
+          ></a>
+          <a
+            href="https://www.linkedin.com/in/ahsan131/"
+            target="_blank"
+            class="text-3xl text-gray-600 hover:text-blue-600 transition duration-300"
+            ><i class="fab fa-linkedin"></i
+          ></a>
+          <a
+            href="mailto:ahsanjsdev@gmail.com"
+            target="_blank"
+            class="text-3xl text-gray-600 hover:text-blue-600 transition duration-300"
+            ><i class="fas fa-envelope"></i
+          ></a>
+          <a
+            href="tel:+4915732468471"
+            class="text-3xl text-gray-600 hover:text-blue-600 transition duration-300"
+            ><i class="fas fa-phone"></i
+          ></a>
         </div>
-        <div class="contact-methods">
-            <!-- <a href="https://www.facebook.com/ahsan.ansari.716970" target="_blank"><i class="fab fa-facebook-square"></i> Facebook</a> -->
-            <a href="https://github.com/ahsan131-hub" target="_blank"><i class="fab fa-github"></i> GitHub</a>
-            <a href="https://www.linkedin.com/in/ahsan131/" target="_blank"><i class="fab fa-linkedin"></i> LinkedIn</a>
-            <a href="mailto: ahsanjsdev@gmail.com" target="_blank"><i class="fas fa-at"></i> Send a mail</a>
-            <a href="tel:+4915732468471"><i class="fas fa-mobile-alt"></i> Call Me</a>
-        </div>
+      </div>
     </section>
-    <footer>
-        <p>&copy; created by <strong>Muhammd Ahsan</strong></p>
+
+    <!-- Footer -->
+    <footer class="bg-white py-6 text-center shadow-md">
+      <p class="text-gray-600">
+        &copy; 2023 Muhammad Ahsan. All rights reserved.
+      </p>
     </footer>
-</body>
-
+  </body>
 </html>
