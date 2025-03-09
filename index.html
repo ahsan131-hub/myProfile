@@ -10,7 +10,7 @@
       rel="stylesheet"
     />
     <style>
-      /* Custom animations */
+      /* Custom gradient and animations */
       @keyframes fadeIn {
         from {
           opacity: 0;
@@ -24,19 +24,30 @@
       .animate-fade-in {
         animation: fadeIn 0.8s ease-out;
       }
+      .gradient-bg {
+        background: linear-gradient(135deg, #1e3a8a, #2563eb);
+      }
+      .gradient-text {
+        background: linear-gradient(135deg, #2563eb, #1e3a8a);
+        -webkit-background-clip: text;
+        -webkit-text-fill-color: transparent;
+      }
+      .card-hover {
+        transition: transform 0.3s ease, box-shadow 0.3s ease;
+      }
+      .card-hover:hover {
+        transform: translateY(-10px);
+        box-shadow: 0 10px 20px rgba(0, 0, 0, 0.15);
+      }
     </style>
   </head>
   <body class="bg-gray-50 text-gray-900 font-sans">
     <!-- Navbar -->
-    <nav class="fixed top-0 w-full bg-white shadow-md z-50">
+    <nav class="fixed top-0 w-full bg-white/90 backdrop-blur-md shadow-sm z-50">
       <div
         class="container mx-auto px-6 py-4 flex justify-between items-center"
       >
-        <a
-          href="#"
-          class="text-2xl font-bold text-gray-800 hover:text-blue-600 transition duration-300"
-          >Muhammad Ahsan</a
-        >
+        <a href="#" class="text-2xl font-bold gradient-text">Muhammad Ahsan</a>
         <ul class="flex space-x-6">
           <li>
             <a
@@ -68,9 +79,9 @@
           </li>
           <li>
             <a
-              href="./resource/NEW_MuhammadAhsan_CV.pdf"
+              href="./resource/MuhammadAhsan_CV.pdf"
               download
-              class="bg-blue-600 text-white px-4 py-2 rounded-lg hover:bg-blue-700 transition duration-300"
+              class="gradient-bg text-white px-4 py-2 rounded-lg hover:shadow-lg transition duration-300"
               >Download CV</a
             >
           </li>
@@ -81,7 +92,7 @@
     <!-- Hero Section -->
     <section
       id="about"
-      class="min-h-screen flex flex-col justify-center items-center text-center bg-white animate-fade-in"
+      class="min-h-screen flex flex-col justify-center items-center text-center bg-gradient-to-br from-blue-50 to-white animate-fade-in"
     >
       <h1 class="text-5xl md:text-6xl font-bold text-gray-800 mb-4">
         Muhammad Ahsan
@@ -93,23 +104,21 @@
       <div class="mt-8">
         <a
           href="#experience"
-          class="bg-blue-600 text-white px-8 py-3 rounded-lg hover:bg-blue-700 transition duration-300"
+          class="gradient-bg text-white px-8 py-3 rounded-lg hover:shadow-lg transition duration-300"
           >View My Work</a
         >
       </div>
     </section>
 
     <!-- Work Experience Section -->
-    <section id="experience" class="py-20 bg-gray-50">
+    <section id="experience" class="py-20 bg-white">
       <div class="container mx-auto px-6">
         <h2 class="text-4xl font-bold text-center text-gray-800 mb-12">
           Work Experience
         </h2>
         <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
           <!-- CivilPleet -->
-          <div
-            class="bg-white p-6 rounded-lg shadow-md hover:shadow-lg transition duration-300"
-          >
+          <div class="bg-white p-6 rounded-lg shadow-md card-hover">
             <h3 class="text-2xl font-bold text-gray-800 mb-4">
               Software Engineer - CivilPleet
             </h3>
@@ -130,9 +139,7 @@
             <p class="text-gray-500 mt-4">Berlin, Germany</p>
           </div>
           <!-- Startrum -->
-          <div
-            class="bg-white p-6 rounded-lg shadow-md hover:shadow-lg transition duration-300"
-          >
+          <div class="bg-white p-6 rounded-lg shadow-md card-hover">
             <h3 class="text-2xl font-bold text-gray-800 mb-4">
               Junior Full-Stack Engineer - Startrum
             </h3>
@@ -149,9 +156,7 @@
             <p class="text-gray-500 mt-4">startrum.com</p>
           </div>
           <!-- Secomind.Ai -->
-          <div
-            class="bg-white p-6 rounded-lg shadow-md hover:shadow-lg transition duration-300"
-          >
+          <div class="bg-white p-6 rounded-lg shadow-md card-hover">
             <h3 class="text-2xl font-bold text-gray-800 mb-4">
               Junior Backend Engineer - Secomind.Ai
             </h3>
@@ -172,16 +177,17 @@
     </section>
 
     <!-- Projects Section -->
-    <section id="projects" class="py-20 bg-white">
+    <section
+      id="projects"
+      class="py-20 bg-gradient-to-br from-blue-50 to-white"
+    >
       <div class="container mx-auto px-6">
         <h2 class="text-4xl font-bold text-center text-gray-800 mb-12">
           Projects
         </h2>
         <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
           <!-- Bots-Hub -->
-          <div
-            class="bg-gray-50 p-6 rounded-lg shadow-md hover:shadow-lg transition duration-300"
-          >
+          <div class="bg-white p-6 rounded-lg shadow-md card-hover">
             <h3 class="text-2xl font-bold text-gray-800 mb-4">Bots-Hub</h3>
             <p class="text-gray-600 mb-4">
               Platform for building custom bots using Nest.js and OpenAI.
@@ -189,14 +195,12 @@
             <a
               href="https://github.com/ahsan131-hub/bots-hub-frontend"
               target="_blank"
-              class="text-blue-600 hover:text-blue-700 transition duration-300"
+              class="gradient-text hover:underline transition duration-300"
               >View Project →</a
             >
           </div>
           <!-- Metaroom -->
-          <div
-            class="bg-gray-50 p-6 rounded-lg shadow-md hover:shadow-lg transition duration-300"
-          >
+          <div class="bg-white p-6 rounded-lg shadow-md card-hover">
             <h3 class="text-2xl font-bold text-gray-800 mb-4">Metaroom</h3>
             <p class="text-gray-600 mb-4">
               E-learning solution with AWS-hosted video streaming using Next.js
@@ -205,14 +209,12 @@
             <a
               href="https://github.com/ahsan131-hub/metaroom-client"
               target="_blank"
-              class="text-blue-600 hover:text-blue-700 transition duration-300"
+              class="gradient-text hover:underline transition duration-300"
               >View Project →</a
             >
           </div>
           <!-- TSAS -->
-          <div
-            class="bg-gray-50 p-6 rounded-lg shadow-md hover:shadow-lg transition duration-300"
-          >
+          <div class="bg-white p-6 rounded-lg shadow-md card-hover">
             <h3 class="text-2xl font-bold text-gray-800 mb-4">TSAS</h3>
             <p class="text-gray-600 mb-4">
               Tweet sentiment analysis system using Python and Roberta NLP.
@@ -220,7 +222,7 @@
             <a
               href="https://github.com/ahsan131-hub/Tweets-Sentimental-Analysis-System"
               target="_blank"
-              class="text-blue-600 hover:text-blue-700 transition duration-300"
+              class="gradient-text hover:underline transition duration-300"
               >View Project →</a
             >
           </div>
@@ -229,7 +231,7 @@
     </section>
 
     <!-- Contact Section -->
-    <section id="contact" class="py-20 bg-gray-50">
+    <section id="contact" class="py-20 bg-white">
       <div class="container mx-auto px-6 text-center">
         <h2 class="text-4xl font-bold text-gray-800 mb-8">
           Let's Work Together
@@ -239,24 +241,24 @@
           <a
             href="https://github.com/ahsan131-hub"
             target="_blank"
-            class="text-3xl text-gray-600 hover:text-blue-600 transition duration-300"
+            class="text-3xl text-gray-600 hover:gradient-text transition duration-300"
             ><i class="fab fa-github"></i
           ></a>
           <a
             href="https://www.linkedin.com/in/ahsan131/"
             target="_blank"
-            class="text-3xl text-gray-600 hover:text-blue-600 transition duration-300"
+            class="text-3xl text-gray-600 hover:gradient-text transition duration-300"
             ><i class="fab fa-linkedin"></i
           ></a>
           <a
             href="mailto:ahsanjsdev@gmail.com"
             target="_blank"
-            class="text-3xl text-gray-600 hover:text-blue-600 transition duration-300"
+            class="text-3xl text-gray-600 hover:gradient-text transition duration-300"
             ><i class="fas fa-envelope"></i
           ></a>
           <a
             href="tel:+4915732468471"
-            class="text-3xl text-gray-600 hover:text-blue-600 transition duration-300"
+            class="text-3xl text-gray-600 hover:gradient-text transition duration-300"
             ><i class="fas fa-phone"></i
           ></a>
         </div>
@@ -264,7 +266,7 @@
     </section>
 
     <!-- Footer -->
-    <footer class="bg-white py-6 text-center shadow-md">
+    <footer class="bg-white py-6 text-center shadow-sm">
       <p class="text-gray-600">
         &copy; 2023 Muhammad Ahsan. All rights reserved.
       </p>
