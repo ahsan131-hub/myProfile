@@ -1,0 +1,110 @@
+
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap');
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    --background: 210 40% 98%;
+    --foreground: 222 47% 11%;
+
+    --card: 0 0% 100%;
+    --card-foreground: 222 47% 11%;
+
+    --popover: 0 0% 100%;
+    --popover-foreground: 222 47% 11%;
+
+    --primary: 222 47% 11%;
+    --primary-foreground: 210 40% 98%;
+
+    --secondary: 210 40% 96%;
+    --secondary-foreground: 222 47% 11%;
+
+    --muted: 210 40% 96%;
+    --muted-foreground: 215 16% 47%;
+
+    --accent: 210 40% 96%;
+    --accent-foreground: 222 47% 11%;
+
+    --destructive: 0 84% 60%;
+    --destructive-foreground: 210 40% 98%;
+
+    --border: 214 32% 91%;
+    --input: 214 32% 91%;
+    --ring: 222 47% 11%;
+
+    --radius: 0.75rem;
+  }
+
+  * {
+    @apply border-border;
+  }
+
+  body {
+    @apply bg-background text-foreground antialiased;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+  }
+
+  html {
+    @apply scroll-smooth;
+  }
+
+  ::selection {
+    @apply bg-primary/10 text-primary;
+  }
+}
+
+@layer components {
+  .glass-card {
+    @apply bg-white/80 backdrop-blur-md border border-white/20 shadow-glass;
+  }
+  
+  .section-heading {
+    @apply text-3xl md:text-4xl font-bold text-foreground mb-8 relative z-10;
+  }
+
+  .section-heading::after {
+    content: '';
+    @apply absolute bottom-0 left-0 w-16 h-1 bg-primary/80 rounded-full -z-10;
+    transform: translateY(8px);
+  }
+
+  .nav-link {
+    @apply relative text-muted-foreground hover:text-foreground transition-colors duration-300;
+  }
+
+  .nav-link::after {
+    content: '';
+    @apply absolute left-0 bottom-0 w-0 h-0.5 bg-primary rounded-full transition-all duration-300 opacity-0;
+  }
+
+  .nav-link:hover::after {
+    @apply w-full opacity-100;
+  }
+
+  .card-hover {
+    @apply transition-all duration-300 hover:shadow-card hover:-translate-y-1;
+  }
+
+  .gradient-text {
+    @apply bg-clip-text text-transparent bg-gradient-to-r from-primary to-primary/70;
+  }
+
+  .btn-primary {
+    @apply bg-primary text-primary-foreground px-6 py-3 rounded-md shadow-subtle transition-all duration-300 
+    hover:shadow-lg hover:translate-y-[-2px] active:translate-y-[0px];
+  }
+
+  .btn-outline {
+    @apply border border-primary/20 text-primary px-6 py-3 rounded-md shadow-subtle transition-all duration-300 
+    hover:bg-primary/5 hover:border-primary/40 hover:shadow-lg hover:translate-y-[-2px] active:translate-y-[0px];
+  }
+
+  .social-icon {
+    @apply w-10 h-10 flex items-center justify-center rounded-full bg-secondary text-primary 
+    transition-all duration-300 hover:bg-primary hover:text-primary-foreground hover:scale-110;
+  }
+}
