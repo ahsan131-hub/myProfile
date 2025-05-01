@@ -24,7 +24,7 @@ const Hero = () => {
           >
             <div className="rounded-full overflow-hidden border-4 border-primary/20 shadow-lg w-36 h-36 md:w-48 md:h-48">
               <img
-                src="src/resource/picture.jpg"
+                src="./picture.jpg"
                 alt="Muhammad Ahsan"
                 className="w-full h-full object-cover"
               />
