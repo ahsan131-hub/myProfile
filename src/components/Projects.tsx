@@ -11,6 +11,7 @@ const projects = [
     description: "Platform for building custom bots using Nest.js and OpenAI.",
     github: "https://github.com/ahsan131-hub/bots-hub-frontend",
     techStack: ["Nest.js", "Next.js", "OpenAI", "TypeScript"],
+    website: "https://bots-hub.vercel.app/",
   },
 
   {
@@ -18,6 +19,7 @@ const projects = [
     description: "A platform for managing partner for non-profit organization.",
     github: "https://partners.lnob.net",
     techStack: ["Next.Js", "TypeScript", "PostgreSQL", "Tailwind CSS"],
+    website: "https://partners.lnob.net",
   },
   {
     title: "Helsingor Museum Chatbot",
@@ -31,6 +33,7 @@ const projects = [
       "TypeScript",
       "Tailwind CSS",
     ],
+    website: "https://ui.museum-helsingor.dk/",
   },
   {
     title: "Metaroom",
@@ -51,14 +54,12 @@ const projects = [
     title: "Pharmacy App",
     description:
       "POS system for pharmacies (Java, MySQL) – Reduced checkout time by 20% for 50+ users.",
-    github: "#",
+    github: "https://github.com/ahsan131-hub/pharmacy-app",
     techStack: ["Java", "MySQL", "Spring Boot", "Hibernate"],
   },
 ];
 
 const Projects = ({ id }: ProjectsProps) => {
-  const sectionRef = useRef<HTMLDivElement>(null);
-
   useEffect(() => {
     const observer = new IntersectionObserver(
       (entries) => {
@@ -128,20 +129,22 @@ const Projects = ({ id }: ProjectsProps) => {
                     <Github size={16} />
                     <span>GitHub</span>
                   </a>
-                  <a
-                    href={project.github}
-                    target="_blank"
-                    rel="noreferrer"
-                    className="text-primary hover:text-primary/80 transition-colors flex items-center gap-1 text-sm font-medium"
-                  >
-                    <ArrowUpRight size={16} />
-                    <span>View Project</span>
-                  </a>
+                  {project.website && (
+                    <a
+                      href={project.website}
+                      target="_blank"
+                      rel="noreferrer"
+                      className="text-primary hover:text-primary/80 transition-colors flex items-center gap-1 text-sm font-medium"
+                    >
+                      <ArrowUpRight size={16} />
+                      <span>View Project</span>
+                    </a>
+                  )}
                 </div>
               </div>
 
               {/* Hover effect border */}
-              <div className="absolute inset-0 border border-transparent group-hover:border-primary/30 rounded-xl transition-all duration-300"></div>
+              <div className="absolute inset-0 border border-transparent group-hover:border-primary/30 rounded-xl transition-all duration-300 pointer-events-none"></div>
             </div>
           ))}
         </div>
