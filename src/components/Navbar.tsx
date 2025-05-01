@@ -51,7 +51,7 @@ const Navbar = () => {
             </a>
           ))}
           <a
-            href="src/resource/MuhammadAhsan_CV.pdf"
+            href="https://drive.google.com/file/d/1s5aNXWBbv8gAMWWoqkkL65z7x4E3HSbL/view?usp=sharing"
             download
             className="btn-primary opacity-0 animate-fade-in"
             style={{ animationDelay: "0.7s", animationFillMode: "forwards" }}
