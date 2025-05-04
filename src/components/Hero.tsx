@@ -1,5 +1,4 @@
 import { ArrowDownCircle } from "lucide-react";
-import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar";
 
 const Hero = () => {
   return (
@@ -24,7 +23,7 @@ const Hero = () => {
           >
             <div className="rounded-full overflow-hidden border-4 border-primary/20 shadow-lg w-36 h-36 md:w-48 md:h-48">
               <img
-                src="./picture.jpg"
+                src="picture.jpg"
                 alt="Muhammad Ahsan"
                 className="w-full h-full object-cover"
               />
@@ -42,8 +41,8 @@ const Hero = () => {
             className="text-lg md:text-xl text-muted-foreground leading-relaxed mb-8 opacity-0 animate-fade-in"
             style={{ animationDelay: "0.7s", animationFillMode: "forwards" }}
           >
-            Building scalable web applications with JavaScript, Python, and
-            modern DevOps tools. 3+ years of experience bringing ideas to life.
+            Software Engineer specialized in building scalable web applications
+            with React, Node.js, and DevOps tools. Based in Berlin, Germany.
           </p>
 
           <div

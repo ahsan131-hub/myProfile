@@ -7,59 +7,43 @@ interface ProjectsProps {
 
 const projects = [
   {
-    title: "Bots-Hub",
-    description: "Platform for building custom bots using Nest.js and OpenAI.",
-    github: "https://github.com/ahsan131-hub/bots-hub-frontend",
-    techStack: ["Nest.js", "Next.js", "OpenAI", "TypeScript"],
-    website: "https://bots-hub.vercel.app/",
-  },
-
-  {
     title: "Partner App",
-    description: "A platform for managing partner for non-profit organization.",
-    github: "https://partners.lnob.net",
-    techStack: ["Next.Js", "TypeScript", "PostgreSQL", "Tailwind CSS"],
-    website: "https://partners.lnob.net",
+    description:
+      "Built internal tool to manage non-profit partner funding, streamlining workflows and reporting accuracy.",
+    github: "https://partners.lnob.net/",
+    liveUrl: "https://partners.lnob.net/",
+    techStack: ["Next.js", "PostgreSQL", "TypeScript"],
   },
   {
-    title: "Helsingor Museum Chatbot",
-    description: "A chatbot for Helsingor Museum.",
+    title: "Helsingør Museum Chatbot",
+    description:
+      "Developed AI-powered assistant enabling interactive exploration of cultural history exhibits.",
     github: "https://ui.museum-helsingor.dk/",
-    techStack: [
-      "OpenAI",
-      "Langchain",
-      "Pinecone",
-      "Next.Js",
-      "TypeScript",
-      "Tailwind CSS",
-    ],
-    website: "https://ui.museum-helsingor.dk/",
+    liveUrl: "https://ui.museum-helsingor.dk/",
+    techStack: ["AI", "Next.js", "TypeScript"],
   },
   {
-    title: "Metaroom",
+    title: "Metaroom E-Learning Platform",
     description:
-      "E-learning solution with AWS-hosted video streaming using Next.js and TypeScript.",
+      "Delivered full-stack e-learning platform hosted on AWS with user-authentication and content delivery features.",
     github: "https://github.com/ahsan131-hub/metaroom-client",
-    techStack: ["Next.js", "TypeScript", "AWS", "Tailwind CSS"],
+    liveUrl: "",
+    techStack: ["Next.js", "TypeScript", "MongoDB", "AWS"],
   },
   {
-    title: "TSAS",
+    title: "Tweet Sentiment Analysis System",
     description:
-      "Tweet sentiment analysis system using Python and Roberta NLP. Analyzed 10K+ tweets with high accuracy.",
+      "Analyzed over 10,000 tweets using RoBERTa-based NLP model for sentiment classification.",
     github:
       "https://github.com/ahsan131-hub/Tweets-Sentimental-Analysis-System",
-    techStack: ["Python", "Roberta NLP", "Machine Learning", "Data Analysis"],
-  },
-  {
-    title: "Pharmacy App",
-    description:
-      "POS system for pharmacies (Java, MySQL) – Reduced checkout time by 20% for 50+ users.",
-    github: "https://github.com/ahsan131-hub/pharmacy-app",
-    techStack: ["Java", "MySQL", "Spring Boot", "Hibernate"],
+    liveUrl: "",
+    techStack: ["Python", "NLP", "RoBERTa"],
   },
 ];
 
 const Projects = ({ id }: ProjectsProps) => {
+  const sectionRef = useRef<HTMLDivElement>(null);
+
   useEffect(() => {
     const observer = new IntersectionObserver(
       (entries) => {
@@ -129,9 +113,9 @@ const Projects = ({ id }: ProjectsProps) => {
                     <Github size={16} />
                     <span>GitHub</span>
                   </a>
-                  {project.website && (
+                  {project.liveUrl && (
                     <a
-                      href={project.website}
+                      href={project.liveUrl}
                       target="_blank"
                       rel="noreferrer"
                       className="text-primary hover:text-primary/80 transition-colors flex items-center gap-1 text-sm font-medium"

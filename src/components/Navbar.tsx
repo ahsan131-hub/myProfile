@@ -1,6 +1,7 @@
 import { useState, useEffect } from "react";
 import { Menu, X } from "lucide-react";
 import { cn } from "@/lib/utils";
+import ThemeToggle from "./ThemeToggle";
 
 const Navbar = () => {
   const [isScrolled, setIsScrolled] = useState(false);
@@ -17,12 +18,21 @@ const Navbar = () => {
 
   const toggleMenu = () => setMobileMenuOpen(!mobileMenuOpen);
 
+  const navItems = [
+    "Home",
+    "Skills",
+    "Experience",
+    "Education",
+    "Projects",
+    "Contact",
+  ];
+
   return (
     <header
       className={cn(
         "fixed top-0 left-0 right-0 z-50 transition-all duration-300",
         isScrolled
-          ? "py-3 bg-white/80 backdrop-blur-md shadow-subtle"
+          ? "py-3 bg-background/80 backdrop-blur-md shadow-subtle"
           : "py-5 bg-transparent"
       )}
     >
@@ -36,8 +46,8 @@ const Navbar = () => {
         </a>
 
         {/* Desktop Navigation */}
-        <nav className="hidden md:flex items-center space-x-8">
-          {["Home", "Experience", "Projects", "Contact"].map((item, index) => (
+        <nav className="hidden md:flex items-center space-x-6">
+          {navItems.map((item, index) => (
             <a
               key={item}
               href={`#${item.toLowerCase()}`}
@@ -50,34 +60,39 @@ const Navbar = () => {
               {item}
             </a>
           ))}
+          <ThemeToggle />
           <a
-            href="https://drive.google.com/file/d/1s5aNXWBbv8gAMWWoqkkL65z7x4E3HSbL/view?usp=sharing"
-            download
+            href="/Muhammad_Ahsan_Software_Engineer_Resume.pdf"
+            target="_blank"
+            rel="noopener noreferrer"
             className="btn-primary opacity-0 animate-fade-in"
-            style={{ animationDelay: "0.7s", animationFillMode: "forwards" }}
+            style={{ animationDelay: "0.9s", animationFillMode: "forwards" }}
           >
-            Download CV
+            View CV
           </a>
         </nav>
 
         {/* Mobile Menu Button */}
-        <button
-          className="md:hidden text-foreground focus:outline-none"
-          onClick={toggleMenu}
-          aria-label="Toggle menu"
-        >
-          {mobileMenuOpen ? <X size={24} /> : <Menu size={24} />}
-        </button>
+        <div className="md:hidden flex items-center gap-2">
+          <ThemeToggle />
+          <button
+            className="text-foreground focus:outline-none"
+            onClick={toggleMenu}
+            aria-label="Toggle menu"
+          >
+            {mobileMenuOpen ? <X size={24} /> : <Menu size={24} />}
+          </button>
+        </div>
       </div>
 
       {/* Mobile Navigation */}
       <div
         className={cn(
-          "fixed inset-0 bg-background/95 backdrop-blur-md z-40 md:hidden transition-all duration-300 flex flex-col justify-center items-center space-y-8 pt-20",
+          "fixed inset-0 bg-background/95 backdrop-blur-md z-40 md:hidden transition-all duration-300 flex flex-col justify-center items-center space-y-6 pt-20",
           mobileMenuOpen ? "opacity-100" : "opacity-0 pointer-events-none"
         )}
       >
-        {["Home", "Experience", "Projects", "Contact"].map((item) => (
+        {navItems.map((item) => (
           <a
             key={item}
             href={`#${item.toLowerCase()}`}
@@ -89,11 +104,12 @@ const Navbar = () => {
         ))}
         <a
           href="/Muhammad_Ahsan_CV.pdf"
-          download
+          target="_blank"
+          rel="noopener noreferrer"
           className="btn-primary mt-4"
           onClick={() => setMobileMenuOpen(false)}
         >
-          Download CV
+          View CV
         </a>
       </div>
     </header>

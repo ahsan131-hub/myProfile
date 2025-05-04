@@ -8,15 +8,15 @@ interface ExperienceProps {
 
 const experiences = [
   {
-    company: "CivilFleet",
-    position: "Software Engineer",
+    company: "CivilFleet-Support eV",
+    position: "Software Engineer – Internal Tools and Infrastructure",
     period: "June 2024 - Present",
     location: "Berlin, Germany",
     type: "Non-Profit Organization",
     tasks: [
-      "Collaborated with the team lead to build internal tools and dashboards using Next.js and Python, reducing manual reporting time by 30%.",
-      "Managed infrastructure using Kubernetes, ArgoCD, and Traefik, improving deployment efficiency by 25%.",
-      "Provided IT support to 50+ colleagues, resolving 95% of system issues within 2 hours."
+      "Developed internal dashboards and tooling in Next.js and Python, reducing manual reporting time by 30%.",
+      "Implemented and maintained Kubernetes, ArgoCD, and Traefik, improving deployment efficiency by 25%.",
+      "Provided technical support to 50+ team members, resolving 95% of technical issues within 2 hours on average."
     ]
   },
   {
@@ -26,8 +26,9 @@ const experiences = [
     location: "startrum.com",
     type: "Startup",
     tasks: [
-      "Developed AI applications using GPT models, increasing user engagement by 25%.",
-      "Built a full-stack web platform with Node.js, Next.js, and MySQL, serving 1K+ monthly active users."
+      "Integrated GPT-based AI into web apps, increasing user engagement by 25%.",
+      "Developed a scalable platform with Node.js, Next.js, and MySQL, serving over 1,000 monthly active users.",
+      "Built responsive UI components using TypeScript and React, improving mobile performance and accessibility."
     ]
   },
   {
@@ -37,8 +38,9 @@ const experiences = [
     location: "Secomind.ai",
     type: "AI Startup",
     tasks: [
-      "Implemented a round-robin scheduling system used by 500+ teams, reducing scheduling conflicts by 40%.",
-      "Designed a GraphQL API with TypeScript and MongoDB, improving query response time by 15%."
+      "Designed a round-robin scheduling system for 500+ teams, reducing scheduling conflicts by 40%.",
+      "Built and optimized GraphQL APIs using TypeScript and MongoDB, improving query performance by 15%.",
+      "Worked closely with frontend engineers to streamline API integration and data flow."
     ]
   }
 ];

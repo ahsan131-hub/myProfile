@@ -38,6 +38,36 @@
     --radius: 0.75rem;
   }
 
+  .dark {
+    --background: 222 47% 6%;
+    --foreground: 210 40% 98%;
+
+    --card: 222 47% 7%;
+    --card-foreground: 210 40% 98%;
+
+    --popover: 222 47% 7%;
+    --popover-foreground: 210 40% 98%;
+
+    --primary: 210 40% 98%;
+    --primary-foreground: 222 47% 6%;
+
+    --secondary: 222 47% 14%;
+    --secondary-foreground: 210 40% 98%;
+
+    --muted: 222 47% 14%;
+    --muted-foreground: 215 16% 65%;
+
+    --accent: 222 47% 14%;
+    --accent-foreground: 210 40% 98%;
+
+    --destructive: 0 84% 60%;
+    --destructive-foreground: 210 40% 98%;
+
+    --border: 222 47% 16%;
+    --input: 222 47% 16%;
+    --ring: 210 40% 98%;
+  }
+
   * {
     @apply border-border;
   }
@@ -59,7 +89,7 @@
 
 @layer components {
   .glass-card {
-    @apply bg-white/80 backdrop-blur-md border border-white/20 shadow-glass;
+    @apply bg-white/80 dark:bg-black/30 backdrop-blur-md border border-white/20 dark:border-white/10 shadow-glass;
   }
   
   .section-heading {
@@ -107,4 +137,9 @@
     @apply w-10 h-10 flex items-center justify-center rounded-full bg-secondary text-primary 
     transition-all duration-300 hover:bg-primary hover:text-primary-foreground hover:scale-110;
   }
+}
+
+/* Dark mode adjustments for hero and project sections */
+.dark .animate-float {
+  @apply opacity-20;
 }
