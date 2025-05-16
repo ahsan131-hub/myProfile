@@ -24,6 +24,7 @@ const Navbar = () => {
     "Experience",
     "Education",
     "Projects",
+    "Certification",
     "Contact",
   ];
 
