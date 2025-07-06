@@ -63,7 +63,7 @@ const Navbar = () => {
           ))}
           <ThemeToggle />
           <a
-            href="/Muhammad_Ahsan_Software_Engineer_Resume.pdf"
+            href="/Muhammad_Ahsan_Software_Engineer_CV.pdf"
             target="_blank"
             rel="noopener noreferrer"
             className="btn-primary opacity-0 animate-fade-in"
