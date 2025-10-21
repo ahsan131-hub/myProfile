@@ -49,9 +49,17 @@ const Hero = () => {
             className="flex flex-col sm:flex-row items-center justify-center gap-4 opacity-0 animate-fade-in"
             style={{ animationDelay: "0.9s", animationFillMode: "forwards" }}
           >
-            <a href="#experience" className="btn-primary w-full sm:w-auto">
+            {/* <a href="#experience" className="btn-primary w-full sm:w-auto">
               View My Work
-            </a>
+            </a> */}
+
+            <div
+              className="sm:w-auto cursor-pointer"
+              onClick={() => (window.location.href = "#experience")}
+            >
+              View My Work
+            </div>
+
             <a href="#contact" className="btn-outline w-full sm:w-auto">
               Get In Touch
             </a>
