@@ -100,7 +100,7 @@ const Contact = ({ id }: ContactProps) => {
             >
               <Mail size={20} />
             </a>
-            <a
+            {/* <a
               href="https://github.com/ahsan131-hub"
               target="_blank"
               rel="noreferrer"
@@ -117,7 +117,7 @@ const Contact = ({ id }: ContactProps) => {
               aria-label="LinkedIn"
             >
               <Linkedin size={20} />
-            </a>
+            </a> */}
             <a
               href="tel:+4915732468471"
               className="social-icon"
