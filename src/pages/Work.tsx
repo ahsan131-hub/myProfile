@@ -496,9 +496,6 @@ const Work = () => {
                         >
                           <Linkedin size={18} />
                         </a>
-                        <a href="tel:+4915732468471" className="social-icon">
-                          <Phone size={18} />
-                        </a>
                       </div>
                     </div>
                   )}
