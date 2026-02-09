@@ -10,7 +10,7 @@ const Footer = () => {
   };
 
   return (
-    <footer className="py-8 border-t border-border">
+    <footer className="py-8 border-t border-border/60">
       <div className="container mx-auto px-6">
         <div className="flex flex-col md:flex-row justify-between items-center">
           <div className="mb-4 md:mb-0">
@@ -22,7 +22,7 @@ const Footer = () => {
           <div className="flex items-center space-x-4">
             <button
               onClick={scrollToTop}
-              className="w-10 h-10 rounded-full bg-secondary flex items-center justify-center text-primary transition-all duration-300 hover:bg-primary hover:text-secondary"
+              className="w-11 h-11 rounded-full bg-secondary flex items-center justify-center text-primary transition-all duration-300 hover:bg-primary hover:text-primary-foreground"
               aria-label="Scroll to top"
             >
               <ArrowUp size={18} />

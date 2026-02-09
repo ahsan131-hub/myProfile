@@ -18,29 +18,21 @@ const Navbar = () => {
 
   const toggleMenu = () => setMobileMenuOpen(!mobileMenuOpen);
 
-  const navItems = [
-    "Home",
-    "Skills",
-    "Experience",
-    "Education",
-    "Projects",
-    "Certification",
-    "Contact",
-  ];
+  const navItems = ["Home"];
 
   return (
     <header
       className={cn(
         "fixed top-0 left-0 right-0 z-50 transition-all duration-300",
         isScrolled
-          ? "py-3 bg-background/80 backdrop-blur-md shadow-subtle"
+          ? "py-3 bg-background/80 backdrop-blur-md border-b border-white/30 dark:border-white/10"
           : "py-5 bg-transparent"
       )}
     >
       <div className="container mx-auto px-6 flex items-center justify-between">
         <a
           href="#home"
-          className="text-xl md:text-2xl font-bold gradient-text opacity-0 animate-fade-in"
+          className="text-lg md:text-xl font-semibold tracking-tight gradient-text opacity-0 animate-fade-in"
           style={{ animationDelay: "0.2s", animationFillMode: "forwards" }}
         >
           Muhammad Ahsan
@@ -62,6 +54,13 @@ const Navbar = () => {
             </a>
           ))}
           <ThemeToggle />
+          <a
+            href="mailto:ahsanjsdev@gmail.com"
+            className="btn-outline opacity-0 animate-fade-in"
+            style={{ animationDelay: "0.8s", animationFillMode: "forwards" }}
+          >
+            Contact
+          </a>
           <a
             href="/Muhammad_Ahsan_Software_Engineer_CV.pdf"
             target="_blank"
@@ -103,6 +102,13 @@ const Navbar = () => {
             {item}
           </a>
         ))}
+        <a
+          href="mailto:ahsanjsdev@gmail.com"
+          className="btn-outline mt-4"
+          onClick={() => setMobileMenuOpen(false)}
+        >
+          Contact
+        </a>
         <a
           href="/Muhammad_Ahsan_CV.pdf"
           target="_blank"

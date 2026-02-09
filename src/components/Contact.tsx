@@ -93,38 +93,40 @@ const Contact = ({ id }: ContactProps) => {
           </p>
 
           <div className="flex flex-wrap justify-center gap-4 mb-12">
-            <a
-              href="mailto:ahsanjsdev@gmail.com"
-              className="social-icon"
-              aria-label="Email"
-            >
-              <Mail size={20} />
-            </a>
-            {/* <a
-              href="https://github.com/ahsan131-hub"
-              target="_blank"
-              rel="noreferrer"
-              className="social-icon"
-              aria-label="GitHub"
-            >
-              <Github size={20} />
-            </a>
-            <a
-              href="https://linkedin.com/in/ahsan131"
-              target="_blank"
-              rel="noreferrer"
-              className="social-icon"
-              aria-label="LinkedIn"
-            >
-              <Linkedin size={20} />
-            </a> */}
-            <a
-              href="tel:+4915732468471"
-              className="social-icon"
-              aria-label="Phone"
-            >
-              <Phone size={20} />
-            </a>
+            <div className="neo-panel px-6 py-4 flex flex-wrap items-center gap-4">
+              <a
+                href="mailto:ahsanjsdev@gmail.com"
+                className="social-icon"
+                aria-label="Email"
+              >
+                <Mail size={20} />
+              </a>
+              <a
+                href="https://github.com/ahsan131-hub"
+                target="_blank"
+                rel="noreferrer"
+                className="social-icon"
+                aria-label="GitHub"
+              >
+                <Github size={20} />
+              </a>
+              <a
+                href="https://www.linkedin.com/in/ahsan131/"
+                target="_blank"
+                rel="noreferrer"
+                className="social-icon"
+                aria-label="LinkedIn"
+              >
+                <Linkedin size={20} />
+              </a>
+              <a
+                href="tel:+4915732468471"
+                className="social-icon"
+                aria-label="Phone"
+              >
+                <Phone size={20} />
+              </a>
+            </div>
           </div>
 
           {/* <div className="glass-card p-8 rounded-2xl max-w-md mx-auto">

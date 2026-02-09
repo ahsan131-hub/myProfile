@@ -60,8 +60,8 @@ export default {
         sm: "calc(var(--radius) - 4px)",
       },
       fontFamily: {
-        sans: ["SF Pro Display", "Inter", "system-ui", "sans-serif"],
-        mono: ["SF Mono", "monospace"],
+        sans: ["Space Grotesk", "system-ui", "sans-serif"],
+        mono: ["JetBrains Mono", "ui-monospace", "SFMono-Regular", "monospace"],
       },
       keyframes: {
         "accordion-down": {

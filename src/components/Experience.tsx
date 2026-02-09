@@ -8,39 +8,58 @@ interface ExperienceProps {
 
 const experiences = [
   {
-    company: "CivilFleet-Support eV",
-    position: "Software Engineer – Internal Tools and Infrastructure",
-    period: "June 2024 - Present",
+    company: "AccessGo",
+    position: "Software Engineer",
+    period: "Aug 2025 - Present",
+    location: "Berlin, Germany",
+    type: "Accessibility Platform",
+    tasks: [
+      "Architected distributed audit infrastructure on GCP using Terraform for multi-environment reliability.",
+      "Built Pub/Sub + Cloud Functions/Run pipelines with DLQ workers to improve resilience and observability.",
+      "Optimized autoscaling policies and build triggers to reduce rebuilds and improve performance.",
+      "Developed TypeScript microservices with robust error handling, logging, and graceful shutdowns.",
+      "Practiced TDD with 900+ Jest tests to prevent regressions in distributed systems.",
+      "Designed modular accessibility widget architecture using DDD for scalable deployments."
+    ]
+  },
+  {
+    company: "Civilfleet-Support eV",
+    position: "Software Engineer",
+    period: "Jun 2024 - Present",
     location: "Berlin, Germany",
     type: "Non-Profit Organization",
     tasks: [
-      "Developed internal dashboards and tooling in Next.js and Python, reducing manual reporting time by 30%.",
-      "Implemented and maintained Kubernetes, ArgoCD, and Traefik, improving deployment efficiency by 25%.",
-      "Provided technical support to 50+ team members, resolving 95% of technical issues within 2 hours on average."
+      "Implemented CI/CD with GitHub Actions and ArgoCD + Helm for GitOps delivery to Kubernetes.",
+      "Managed Kubernetes infrastructure with health checks, service discovery, and resource allocation.",
+      "Built full-stack apps with Next.js, Node.js, and Python; integrated FundraisingBox and Brevo.",
+      "Designed PartnerApp to automate fund transfers with audit logging and error recovery.",
+      "Managed Mailcow email services, user accounts, and system administration tasks."
     ]
   },
   {
     company: "Startrum",
     position: "Junior Full-Stack Engineer",
-    period: "Sept 2023 - April 2024",
-    location: "startrum.com",
+    period: "Sep 2023 - Apr 2024",
+    location: "Berlin, Germany",
     type: "Startup",
     tasks: [
-      "Integrated GPT-based AI into web apps, increasing user engagement by 25%.",
-      "Developed a scalable platform with Node.js, Next.js, and MySQL, serving over 1,000 monthly active users.",
-      "Built responsive UI components using TypeScript and React, improving mobile performance and accessibility."
+      "Built ConsortMe inventory system with Next.js, ShadCN UI, Prisma, and PostgreSQL.",
+      "Implemented file handling with AWS S3 and deployed via Docker on AWS EC2.",
+      "Developed BillTracker AI with OpenAI LLMs and Weaviate semantic search.",
+      "Built data pipelines with error handling and monitoring for reliability."
     ]
   },
   {
-    company: "Secomind.Ai",
+    company: "Secomind.AI",
     position: "Junior Backend Engineer",
-    period: "May 2022 - October 2022",
-    location: "Secomind.ai",
+    period: "May 2022 - Oct 2022",
+    location: "Remote",
     type: "AI Startup",
     tasks: [
-      "Designed a round-robin scheduling system for 500+ teams, reducing scheduling conflicts by 40%.",
-      "Built and optimized GraphQL APIs using TypeScript and MongoDB, improving query performance by 15%.",
-      "Worked closely with frontend engineers to streamline API integration and data flow."
+      "Built core backend systems for 30mins.com, a scheduling platform.",
+      "Designed a round-robin scheduling algorithm with concurrency safeguards.",
+      "Developed GraphQL APIs in TypeScript + MongoDB with indexing and pooling.",
+      "Implemented logging, monitoring, and error handling for production stability."
     ]
   }
 ];

@@ -8,34 +8,42 @@ interface SkillsProps {
 const skillCategories = [
   {
     title: "Languages",
-    skills: ["JavaScript", "TypeScript", "Python", "Java"]
+    skills: ["JavaScript", "TypeScript", "Python", "Java", "Bash"]
+  },
+  {
+    title: "Infrastructure & Cloud",
+    skills: ["GCP", "AWS", "Azure", "Terraform", "Kubernetes", "Docker", "ArgoCD", "Helm", "Linux"]
+  },
+  {
+    title: "Distributed Systems",
+    skills: ["Pub/Sub", "Message Queues", "Microservices", "Cloud Functions", "Cloud Run"]
   },
   {
     title: "Frontend",
-    skills: ["React", "Next.js", "HTML5", "CSS3"]
+    skills: ["React", "Next.js", "Vue.js", "HTML5", "CSS3"]
   },
   {
     title: "Backend",
-    skills: ["Node.js", "Nest.js", "Express", "GraphQL", "REST APIs"]
+    skills: ["Node.js", "Nest.js", "Express", "GraphQL", "Django", "Flask", "REST APIs"]
   },
   {
     title: "Databases",
-    skills: ["MongoDB", "MySQL", "PostgreSQL", "Redis"]
+    skills: ["MongoDB", "MySQL", "PostgreSQL", "Redis", "Weaviate"]
   },
   {
-    title: "DevOps & Cloud",
-    skills: ["AWS", "Kubernetes", "Docker", "ArgoCD", "Linux", "Traefik"]
+    title: "DevOps & Automation",
+    skills: ["CI/CD", "GitHub Actions", "GitOps", "Infrastructure as Code", "Traefik"]
   },
   {
-    title: "Integrations",
-    skills: ["OpenAI", "Gemini", "SendGrid", "Algolia", "Elasticsearch"]
+    title: "Monitoring & Integrations",
+    skills: ["Logging", "Error Tracking", "Performance Monitoring", "OpenAI", "Gemini", "SendGrid", "Algolia", "Elasticsearch"]
   },
   {
     title: "Testing",
     skills: ["Jest", "Cypress", "Vitest", "Playwright", "Mocha", "Postman"]
   },
   {
-    title: "Tools & PM",
+    title: "Tools",
     skills: ["Git", "GitHub", "GitLab", "Jira", "Notion", "Agile/Scrum"]
   }
 ];
@@ -85,7 +93,7 @@ const Skills = ({ id }: SkillsProps) => {
                 {category.skills.map((skill, i) => (
                   <span 
                     key={i} 
-                    className="text-xs font-medium px-2.5 py-1 rounded-full bg-primary/10 text-primary/80"
+                    className="chip"
                   >
                     {skill}
                   </span>

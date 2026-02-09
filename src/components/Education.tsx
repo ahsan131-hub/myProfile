@@ -11,17 +11,17 @@ const educationData = [
     degree: "M.Sc. in Artificial Intelligence",
     institution: "Technical University of Cottbus (BTU)",
     location: "Germany",
-    period: "April 2024 - Present",
+    period: "Apr 2024 - Present",
     achievements: []
   },
   {
     degree: "B.Sc. in Computer Science",
     institution: "Sukkur IBA University (SIBAU)",
     location: "Pakistan",
-    period: "January 2019 - May 2023",
+    period: "Jan 2019 - May 2023",
     achievements: [
-      "Full Scholarship (2019–2023)",
-      "3rd Place – SumoWar Tech Competition (2023)"
+      "Full Scholarship Recipient",
+      "3rd Place — SumoWar Tech Competition 2023"
     ]
   }
 ];

@@ -7,37 +7,45 @@ interface ProjectsProps {
 
 const projects = [
   {
+    title: "Google Cloud Audit Infrastructure",
+    description:
+      "Distributed audit service with DLQ handling, multi-environment support, and automated deployments.",
+    github: "",
+    liveUrl: "",
+    techStack: ["Terraform", "GCP", "Cloud Functions", "Pub/Sub"],
+  },
+  {
     title: "Partner App",
     description:
-      "Built internal tool to manage non-profit partner funding, streamlining workflows and reporting accuracy.",
+      "Internal tool for funding management with reliable workflows, audit logging, and reporting.",
     github: "https://partners.lnob.net/",
     liveUrl: "https://partners.lnob.net/",
-    techStack: ["Next.js", "PostgreSQL", "TypeScript"],
+    techStack: ["Next.js", "PostgreSQL", "Kubernetes"],
   },
   {
     title: "Helsingør Museum Chatbot",
     description:
-      "Developed AI-powered assistant enabling interactive exploration of cultural history exhibits.",
+      "AI assistant enabling interactive cultural exploration with vector search and robust error handling.",
     github: "https://ui.museum-helsingor.dk/",
     liveUrl: "https://ui.museum-helsingor.dk/",
-    techStack: ["AI", "Next.js", "TypeScript"],
+    techStack: ["Next.js", "Pinecone", "LangChain", "OpenAI"],
   },
   {
-    title: "Metaroom E-Learning Platform",
+    title: "Metaroom E-Learning",
     description:
-      "Delivered full-stack e-learning platform hosted on AWS with user-authentication and content delivery features.",
+      "Full-stack learning platform with authentication, content delivery, and scalable infrastructure.",
     github: "https://github.com/ahsan131-hub/metaroom-client",
     liveUrl: "",
-    techStack: ["Next.js", "TypeScript", "MongoDB", "AWS"],
+    techStack: ["Node.js", "Express", "MongoDB", "Next.js", "AWS"],
   },
   {
-    title: "Tweet Sentiment Analysis System",
+    title: "Tweet Sentiment Analysis",
     description:
-      "Analyzed over 10,000 tweets using RoBERTa-based NLP model for sentiment classification.",
+      "Classified 10,000+ tweets using a fine-tuned RoBERTa model and optimized data pipelines.",
     github:
       "https://github.com/ahsan131-hub/Tweets-Sentimental-Analysis-System",
     liveUrl: "",
-    techStack: ["Python", "NLP", "RoBERTa"],
+    techStack: ["Python", "Django", "RoBERTa"],
   },
 ];
 
@@ -96,7 +104,7 @@ const Projects = ({ id }: ProjectsProps) => {
                   {project.techStack.map((tech, i) => (
                     <span
                       key={i}
-                      className="text-xs font-medium px-2.5 py-1 rounded-full bg-primary/10 text-primary/80"
+                      className="chip"
                     >
                       {tech}
                     </span>
@@ -104,15 +112,17 @@ const Projects = ({ id }: ProjectsProps) => {
                 </div>
 
                 <div className="flex items-center gap-4">
-                  <a
-                    href={project.github}
-                    target="_blank"
-                    rel="noreferrer"
-                    className="text-primary hover:text-primary/80 transition-colors flex items-center gap-1 text-sm font-medium"
-                  >
-                    <Github size={16} />
-                    <span>GitHub</span>
-                  </a>
+                  {project.github && (
+                    <a
+                      href={project.github}
+                      target="_blank"
+                      rel="noreferrer"
+                      className="text-primary hover:text-primary/80 transition-colors flex items-center gap-1 text-sm font-medium"
+                    >
+                      <Github size={16} />
+                      <span>GitHub</span>
+                    </a>
+                  )}
                   {project.liveUrl && (
                     <a
                       href={project.liveUrl}

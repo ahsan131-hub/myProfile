@@ -1,13 +1,5 @@
 import { useEffect } from "react";
-import Navbar from "@/components/Navbar";
 import Hero from "@/components/Hero";
-import Experience from "@/components/Experience";
-import Projects from "@/components/Projects";
-import Skills from "@/components/Skills";
-import Education from "@/components/Education";
-import Contact from "@/components/Contact";
-import Footer from "@/components/Footer";
-import Certification from "@/components/Certification";
 
 const Index = () => {
   useEffect(() => {
@@ -29,17 +21,9 @@ const Index = () => {
 
   return (
     <div className="flex flex-col min-h-screen">
-      <Navbar />
       <main className="flex-grow">
         <Hero />
-        <Skills id="skills" />
-        <Experience id="experience" />
-        <Education id="education" />
-        <Projects id="projects" />
-        <Certification id="certification" />
-        <Contact id="contact" />
       </main>
-      <Footer />
     </div>
   );
 };

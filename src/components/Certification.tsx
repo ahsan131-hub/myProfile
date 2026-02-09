@@ -130,7 +130,7 @@ const Certifications = ({ id }: CertificationsProps) => {
             >
               <div className="glass-card rounded-lg overflow-hidden h-full flex flex-col">
                 <div className="relative aspect-[4/3] w-full overflow-hidden">
-                  {loadingImages[index] !== false && (
+                  {loadingImages[index.toString()] !== false && (
                     <Skeleton className="absolute inset-0 w-full h-full" />
                   )}
                   <img
