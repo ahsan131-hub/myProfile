@@ -1,131 +1,149 @@
 import { useEffect, useRef } from "react";
 
-const TEST_IMAGES = ["/test/1.jpg", "/test/2.jpeg", "/test/3.jpg"];
-
-/**
- * Intentionally poor accessibility for /testing-ago (shadow DOM + other issues).
- */
 const TestingAgo = () => {
-  const hostRef = useRef<HTMLDivElement>(null);
+  const shadowHostRef = useRef<HTMLDivElement>(null);
 
   useEffect(() => {
-    const host = hostRef.current;
+    const host = shadowHostRef.current;
     if (!host || host.shadowRoot) return;
 
     const root = host.attachShadow({ mode: "open" });
-    const style = document.createElement("style");
-    style.textContent = `
-      :host { display: block; padding: 1rem; border: 1px dashed #888; }
-      .row { display: flex; flex-wrap: wrap; gap: 0.75rem; }
-      img { max-width: 180px; height: auto; }
-      .shadow-a11y-bad { margin-top: 1rem; display: flex; flex-direction: column; gap: 0.75rem; }
-      .shadow-low-contrast { font-size: 11px; color: #d8d8d8; background: #f0f0f0; padding: 6px; }
-      .shadow-icon-btn {
-        width: 36px; height: 36px; border-radius: 4px; border: 1px solid #444;
-        background: #222; cursor: pointer;
-      }
-      .shadow-silent-link {
-        display: inline-block; width: 24px; height: 24px; background: #06c; vertical-align: middle;
-      }
-      .shadow-fake-btn { display: inline-block; padding: 6px 10px; border: 1px solid #999; cursor: default; }
+    root.innerHTML = `
+      <style>
+        .box { border: 1px solid #bbb; padding: 12px; margin-top: 8px; }
+        .link-like { color: #2563eb; text-decoration: none; }
+        .img-row { display: flex; flex-wrap: wrap; gap: 8px; margin-top: 10px; }
+        .img-row img { width: 140px; height: auto; border: 1px solid #ddd; }
+      </style>
+      <div class="box">
+        <!-- Manual review: link relies on color only, no underline/other cue -->
+        <a href="#shadow-target" class="link-like">Shadow help center</a>
+
+        <!-- Intentional issue: images in shadow DOM without alt text -->
+        <div class="img-row">
+          <img src="/test/1.jpg">
+          <img src="/test/2.jpeg">
+          <img src="/test/3.jpg">
+        </div>
+
+        <!-- Manual review: role="switch" without accessible name -->
+        <div role="switch" tabindex="0" style="margin-top:8px;">ON</div>
+
+        <!-- Manual review: aria-hidden subtree contains focusable element -->
+        <div aria-hidden="true" style="margin-top:8px;">
+          <button type="button">Focusable hidden button</button>
+        </div>
+      </div>
     `;
-    root.appendChild(style);
-    const wrap = document.createElement("div");
-    wrap.className = "row";
-    for (const src of TEST_IMAGES) {
-      const img = document.createElement("img");
-      img.src = src;
-      wrap.appendChild(img);
-    }
-    root.appendChild(wrap);
-
-    const shadowIssues = document.createElement("div");
-    shadowIssues.className = "shadow-a11y-bad";
-
-    const h2 = document.createElement("h2");
-    h2.textContent = "Inside shadow";
-    shadowIssues.appendChild(h2);
-    const h4 = document.createElement("h4");
-    h4.textContent = "Skipped level (no h3)";
-    shadowIssues.appendChild(h4);
-
-    const lowContrast = document.createElement("p");
-    lowContrast.className = "shadow-low-contrast";
-    lowContrast.textContent = "Low-contrast copy inside shadow root.";
-    shadowIssues.appendChild(lowContrast);
-
-    const iconOnlyBtn = document.createElement("button");
-    iconOnlyBtn.type = "button";
-    iconOnlyBtn.className = "shadow-icon-btn";
-    shadowIssues.appendChild(iconOnlyBtn);
-
-    const silentLink = document.createElement("a");
-    silentLink.href = "/";
-    silentLink.className = "shadow-silent-link";
-    shadowIssues.appendChild(silentLink);
-
-    const shadowInput = document.createElement("input");
-    shadowInput.type = "text";
-    shadowInput.placeholder = "placeholder only";
-    shadowIssues.appendChild(shadowInput);
-
-    const hiddenFocusable = document.createElement("input");
-    hiddenFocusable.type = "text";
-    hiddenFocusable.setAttribute("aria-hidden", "true");
-    hiddenFocusable.value = "aria-hidden but still tabbable";
-    shadowIssues.appendChild(hiddenFocusable);
-
-    const fakeBtn = document.createElement("div");
-    fakeBtn.className = "shadow-fake-btn";
-    fakeBtn.setAttribute("role", "button");
-    fakeBtn.tabIndex = 0;
-    fakeBtn.textContent = "div[role=button] (no Enter/Space handler)";
-    shadowIssues.appendChild(fakeBtn);
-
-    root.appendChild(shadowIssues);
   }, []);
 
   return (
-    <div className="min-h-screen bg-muted/40 p-6 md:p-10">
-      <h1 className="text-2xl font-semibold mb-2">Testing AGO</h1>
-      <h3 className="text-sm mb-6 text-muted-foreground">
-        Shadow host below: images without alt, skipped headings, low contrast,
-        icon-only button, silent link, unlabeled input, focusable with
-        aria-hidden, and a div with role button but no key handlers.
-      </h3>
-
-      <div ref={hostRef} />
-
-      <section className="mt-10 max-w-xl space-y-6">
-        <p className="text-[11px] text-[#c0c0c0] bg-[#f5f5f5] p-3 rounded">
-          Low-contrast body copy on purpose (WCAG contrast failure).
-        </p>
-
-        <div
-          className="cursor-pointer rounded border p-3 text-sm underline"
-          onClick={() => window.scrollTo(0, 0)}
-        >
-          Clickable div (no role, no tabIndex, no keyboard handler)
-        </div>
-
-        <a href="/" className="inline-flex items-center gap-1 text-primary">
-          <span className="size-4 rounded-full bg-primary" />
-        </a>
-
-        <form className="space-y-3" onSubmit={(e) => e.preventDefault()}>
-          <input
-            type="text"
-            placeholder="No label"
-            className="w-full border rounded px-2 py-1"
-            autoFocus
-          />
-          <input type="password" className="w-full border rounded px-2 py-1" />
-          <button type="submit" className="text-xs px-2 py-1 border rounded">
-            Submit
-          </button>
-        </form>
+    <main style={{ fontFamily: "Arial, sans-serif", padding: "20px" }}>
+      {/* Manual review: incorrect language declaration for English content */}
+      <section lang="es">
+        <h1>Testing AGO - Manual Review Demo</h1>
+        <p>This page intentionally includes accessibility problems.</p>
       </section>
-    </div>
+
+      {/* Manual review: skip link points to a missing/non-focusable target */}
+      <a
+        href="#missing-main"
+        style={{ position: "absolute", left: "8px", top: "8px" }}
+      >
+        Skip to content
+      </a>
+
+      <section style={{ marginTop: "20px" }}>
+        <h2>Navigation</h2>
+        {/* Manual review: links not visually distinguishable; color-only difference */}
+        <a
+          href="/work"
+          style={{
+            color: "#1d4ed8",
+            textDecoration: "none",
+            marginRight: "12px",
+          }}
+        >
+          Work
+        </a>
+        <a href="/" style={{ color: "#1d4ed8", textDecoration: "none" }}>
+          Home
+        </a>
+      </section>
+
+      <section style={{ marginTop: "20px" }}>
+        <h2>Form</h2>
+        {/* Manual review: multiple labels associated to same input */}
+        <label htmlFor="emailField">Email</label>
+        <label htmlFor="emailField" style={{ marginLeft: "6px" }}>
+          Work Email
+        </label>
+        <input
+          id="emailField"
+          type="email"
+          style={{ display: "block", marginTop: "8px" }}
+        />
+
+        {/* Manual review: visible label says one thing, accessible name says another */}
+        <button
+          type="button"
+          aria-label="Save profile"
+          style={{ marginTop: "12px", display: "block" }}
+        >
+          Delete profile
+        </button>
+
+        {/* Manual review: ARIA role textbox missing accessible name */}
+        <div
+          role="textbox"
+          contentEditable
+          style={{ border: "1px solid #999", marginTop: "12px", padding: "8px" }}
+        >
+          Editable bio text
+        </div>
+      </section>
+
+      <section style={{ marginTop: "20px" }}>
+        <h2>Keyboard Order</h2>
+        {/* Manual review: positive tabindex creates confusing keyboard order */}
+        <button type="button" tabIndex={4} style={{ marginRight: "8px" }}>
+          Tab priority 4
+        </button>
+        <button type="button" tabIndex={1} style={{ marginRight: "8px" }}>
+          Tab priority 1
+        </button>
+        <button type="button">Natural tab order</button>
+      </section>
+
+      <section style={{ marginTop: "20px" }} aria-hidden="true">
+        {/* Manual review: aria-hidden container still exposes focusable control */}
+        <button type="button">Hidden but focusable action</button>
+      </section>
+
+      <section style={{ marginTop: "20px" }}>
+        <h2>Media</h2>
+        {/* Manual review: video has no captions track and no transcript */}
+        <video controls width={320}>
+          <source
+            src="https://interactive-examples.mdn.mozilla.net/media/cc0-videos/flower.mp4"
+            type="video/mp4"
+          />
+        </video>
+
+        {/* Manual review: audio has no transcript provided */}
+        <audio controls style={{ display: "block", marginTop: "10px" }}>
+          <source
+            src="https://interactive-examples.mdn.mozilla.net/media/cc0-audio/t-rex-roar.mp3"
+            type="audio/mpeg"
+          />
+        </audio>
+      </section>
+
+      <section style={{ marginTop: "20px" }}>
+        <h2>Shadow DOM block</h2>
+        <div ref={shadowHostRef} />
+      </section>
+    </main>
   );
 };
 
