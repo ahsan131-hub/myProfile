@@ -97,7 +97,11 @@ const TestingAgo = () => {
         <div
           role="textbox"
           contentEditable
-          style={{ border: "1px solid #999", marginTop: "12px", padding: "8px" }}
+          style={{
+            border: "1px solid #999",
+            marginTop: "12px",
+            padding: "8px",
+          }}
         >
           Editable bio text
         </div>
@@ -140,6 +144,11 @@ const TestingAgo = () => {
       </section>
 
       <section style={{ marginTop: "20px" }}>
+        {/* Intentional issue: light DOM images without alt text */}
+        <div style={{ display: "flex", gap: "8px", marginBottom: "10px" }}>
+          <img src="/test/1.jpg" style={{ width: "120px", height: "auto" }} />
+          <img src="/test/2.jpeg" style={{ width: "120px", height: "auto" }} />
+        </div>
         <h2>Shadow DOM block</h2>
         <div ref={shadowHostRef} />
       </section>
