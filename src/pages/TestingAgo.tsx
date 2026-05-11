@@ -19,11 +19,11 @@ const TestingAgo = () => {
         <!-- Manual review: link relies on color only, no underline/other cue -->
         <a href="#shadow-target" class="link-like">Shadow help center</a>
 
-        <!-- Intentional issue: images in shadow DOM without alt text -->
+        <!-- Intentional issue: images in shadow DOM with empty alt text -->
         <div class="img-row">
-          <img src="/test/1.jpg">
-          <img src="/test/2.jpeg">
-          <img src="/test/3.jpg">
+          <img src="/test/1.jpg" alt="">
+          <img src="/test/2.jpeg" alt="">
+          <img src="/test/3.jpg" alt="">
         </div>
 
         <!-- Manual review: role="switch" without accessible name -->
@@ -144,10 +144,23 @@ const TestingAgo = () => {
       </section>
 
       <section style={{ marginTop: "20px" }}>
-        {/* Intentional issue: light DOM images without alt text */}
+        {/* Intentional issue: light DOM images with empty alt text */}
         <div style={{ display: "flex", gap: "8px", marginBottom: "10px" }}>
-          <img src="/test/1.jpg" style={{ width: "120px", height: "auto" }} />
-          <img src="/test/2.jpeg" style={{ width: "120px", height: "auto" }} />
+          <img
+            src="/test/1.jpg"
+            alt=""
+            style={{ width: "120px", height: "auto" }}
+          />
+          <img
+            src="/test/2.jpeg"
+            alt=""
+            style={{ width: "120px", height: "auto" }}
+          />
+          <img
+            src="/test/3.jpg"
+            alt=""
+            style={{ width: "120px", height: "auto" }}
+          />
         </div>
         <h2>Shadow DOM block</h2>
         <div ref={shadowHostRef} />
