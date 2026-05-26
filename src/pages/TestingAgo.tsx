@@ -1,7 +1,39 @@
-import { useEffect, useRef } from "react";
+import { useEffect, useRef, useState } from "react";
+
+const TEST_IMAGES = ["/test/1.jpg", "/test/2.jpeg", "/test/3.jpg"];
+const SCROLL_BATCH_SIZE = 2;
 
 const TestingAgo = () => {
   const shadowHostRef = useRef<HTMLDivElement>(null);
+  const scrollSentinelRef = useRef<HTMLDivElement>(null);
+  const nextImageIndexRef = useRef(0);
+  const [scrollLoadedImages, setScrollLoadedImages] = useState<string[]>([]);
+
+  useEffect(() => {
+    const sentinel = scrollSentinelRef.current;
+    if (!sentinel) return;
+
+    const observer = new IntersectionObserver(
+      (entries) => {
+        if (!entries[0]?.isIntersecting) return;
+
+        setScrollLoadedImages((prev) => {
+          const next: string[] = [];
+          for (let i = 0; i < SCROLL_BATCH_SIZE; i++) {
+            const src =
+              TEST_IMAGES[nextImageIndexRef.current % TEST_IMAGES.length];
+            nextImageIndexRef.current += 1;
+            next.push(src);
+          }
+          return [...prev, ...next];
+        });
+      },
+      { root: null, rootMargin: "120px", threshold: 0 }
+    );
+
+    observer.observe(sentinel);
+    return () => observer.disconnect();
+  }, []);
 
   useEffect(() => {
     const host = shadowHostRef.current;
@@ -164,6 +196,39 @@ const TestingAgo = () => {
         </div>
         <h2>Shadow DOM block</h2>
         <div ref={shadowHostRef} />
+      </section>
+
+      {/* Spacer keeps scroll-loaded images below the fold on first paint */}
+      <div style={{ height: "70vh" }} aria-hidden="true" />
+
+      <section style={{ marginTop: "32px" }}>
+        <h2>Dynamic images (scroll to load)</h2>
+        <p style={{ fontSize: "14px", color: "#555", marginBottom: "12px" }}>
+          Images below are injected when you scroll near the bottom (not in the
+          initial HTML).
+        </p>
+        <div
+          style={{
+            display: "flex",
+            flexWrap: "wrap",
+            gap: "8px",
+            minHeight: scrollLoadedImages.length ? undefined : "40px",
+          }}
+        >
+          {scrollLoadedImages.map((src, index) => (
+            <img
+              key={`scroll-${index}-${src}`}
+              src={src}
+              alt=""
+              style={{ width: "120px", height: "auto", border: "1px solid #ccc" }}
+            />
+          ))}
+        </div>
+        <div
+          ref={scrollSentinelRef}
+          style={{ height: "1px", marginTop: "24px" }}
+          aria-hidden="true"
+        />
       </section>
     </main>
   );
