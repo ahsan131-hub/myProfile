@@ -1,7 +1,11 @@
 import { useEffect, useRef, useState } from "react";
 
-const TEST_IMAGES = ["/test/1.jpg", "/test/2.jpeg", "/test/3.jpg"];
+/** Free photos via Lorem Picsum (https://picsum.photos) — unique seed per load */
 const SCROLL_BATCH_SIZE = 2;
+
+function getFreeScrollImageUrl(loadIndex: number): string {
+  return `https://picsum.photos/seed/testing-ago-${loadIndex}/300/200`;
+}
 
 const TestingAgo = () => {
   const shadowHostRef = useRef<HTMLDivElement>(null);
@@ -20,15 +24,14 @@ const TestingAgo = () => {
         setScrollLoadedImages((prev) => {
           const next: string[] = [];
           for (let i = 0; i < SCROLL_BATCH_SIZE; i++) {
-            const src =
-              TEST_IMAGES[nextImageIndexRef.current % TEST_IMAGES.length];
+            const idx = nextImageIndexRef.current;
             nextImageIndexRef.current += 1;
-            next.push(src);
+            next.push(getFreeScrollImageUrl(idx));
           }
           return [...prev, ...next];
         });
       },
-      { root: null, rootMargin: "120px", threshold: 0 }
+      { root: null, rootMargin: "120px", threshold: 0 },
     );
 
     observer.observe(sentinel);
@@ -204,8 +207,12 @@ const TestingAgo = () => {
       <section style={{ marginTop: "32px" }}>
         <h2>Dynamic images (scroll to load)</h2>
         <p style={{ fontSize: "14px", color: "#555", marginBottom: "12px" }}>
-          Images below are injected when you scroll near the bottom (not in the
-          initial HTML).
+          Images below are injected when you scroll near the bottom (free photos
+          from{" "}
+          <a href="https://picsum.photos" style={{ color: "#1d4ed8" }}>
+            Lorem Picsum
+          </a>
+          , not in the initial HTML).
         </p>
         <div
           style={{
@@ -220,10 +227,26 @@ const TestingAgo = () => {
               key={`scroll-${index}-${src}`}
               src={src}
               alt=""
-              style={{ width: "120px", height: "auto", border: "1px solid #ccc" }}
+              loading="lazy"
+              style={{
+                width: "120px",
+                height: "auto",
+                border: "1px solid #ccc",
+              }}
             />
           ))}
         </div>
+
+        <img
+          src="/test/1.jpg"
+          alt=""
+          loading="lazy"
+          style={{
+            width: "40px",
+            height: "40px",
+            border: "1px solid #ccc",
+          }}
+        />
         <div
           ref={scrollSentinelRef}
           style={{ height: "1px", marginTop: "24px" }}
