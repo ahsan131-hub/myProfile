@@ -1,4 +1,8 @@
 import { useEffect, useRef, useState } from "react";
+import { Link } from "react-router-dom";
+import { buildHashRoute, useHashRoute } from "@/hooks/useHashRoute";
+import { listTestingAgoHashRoutes, TESTING_AGO_CONTENT } from "./testingAgoContent";
+import TestingAgoHashContent from "./TestingAgoHashContent";
 
 /** Free photos via Lorem Picsum (https://picsum.photos) — unique seed per load */
 const SCROLL_BATCH_SIZE = 2;
@@ -8,6 +12,7 @@ function getFreeScrollImageUrl(loadIndex: number): string {
 }
 
 const TestingAgo = () => {
+  const hashSegments = useHashRoute();
   const shadowHostRef = useRef<HTMLDivElement>(null);
   const scrollSentinelRef = useRef<HTMLDivElement>(null);
   const nextImageIndexRef = useRef(0);
@@ -101,9 +106,42 @@ const TestingAgo = () => {
         >
           Work
         </a>
-        <a href="/" style={{ color: "#1d4ed8", textDecoration: "none" }}>
+        <a
+          href="/"
+          style={{ color: "#1d4ed8", textDecoration: "none", marginRight: "12px" }}
+        >
           Home
         </a>
+        <Link to="/testing-ago" style={{ color: "#1d4ed8", textDecoration: "none" }}>
+          Testing AGO
+        </Link>
+      </section>
+
+      <section style={{ marginTop: "20px" }}>
+        <h2>Hash routes</h2>
+        <p style={{ fontSize: "14px", color: "#555", marginBottom: "8px" }}>
+          Content changes from the URL hash on <code>/testing-ago</code> — e.g.{" "}
+          <code>/testing-ago#/openai</code> or <code>/testing-ago#/claude</code>.
+        </p>
+        <nav style={{ display: "flex", gap: "12px", flexWrap: "wrap" }}>
+          {Object.entries(TESTING_AGO_CONTENT).map(([slug, node]) => (
+            <a
+              key={slug}
+              href={buildHashRoute([slug])}
+              style={{ color: "#1d4ed8", textDecoration: "none" }}
+            >
+              {node.title}
+            </a>
+          ))}
+        </nav>
+        {hashSegments.length > 0 && (
+          <TestingAgoHashContent hashSegments={hashSegments} />
+        )}
+        {hashSegments.length === 0 && (
+          <p style={{ fontSize: "14px", color: "#555", marginTop: "12px" }}>
+            Try: {listTestingAgoHashRoutes().slice(0, 3).join(", ")}.
+          </p>
+        )}
       </section>
 
       <section style={{ marginTop: "20px" }}>
