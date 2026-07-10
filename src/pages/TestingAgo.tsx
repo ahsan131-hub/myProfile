@@ -217,6 +217,33 @@ const TestingAgo = () => {
       </section>
 
       <section style={{ marginTop: "20px" }}>
+        <h2>Redundant Alt Text</h2>
+        {/* Intentional issue: alt text redundantly announces "image of/picture of" */}
+        <img
+          src="/test/1.jpg"
+          alt="Image of a photo of test image 1"
+          style={{ width: "120px", height: "auto" }}
+        />
+
+        {/* Intentional issue: alt text duplicates the adjacent visible caption verbatim */}
+        <figure style={{ display: "inline-block", marginLeft: "8px" }}>
+          <img
+            src="/test/2.jpeg"
+            alt="Sample test image two"
+            style={{ width: "120px", height: "auto" }}
+          />
+          <figcaption>Sample test image two</figcaption>
+        </figure>
+
+        {/* Intentional issue: alt text is just the redundant filename */}
+        <img
+          src="/test/3.jpg"
+          alt="3.jpg"
+          style={{ width: "120px", height: "auto", marginLeft: "8px" }}
+        />
+      </section>
+
+      <section style={{ marginTop: "20px" }}>
         {/* Intentional issue: light DOM images with empty alt text */}
         <div style={{ display: "flex", gap: "8px", marginBottom: "10px" }}>
           <img
