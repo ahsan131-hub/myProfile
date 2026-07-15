@@ -181,6 +181,19 @@ const TestingAgo = () => {
       </section>
 
       <section style={{ marginTop: "20px" }}>
+        <h2>Heading order</h2>
+        <p style={{ fontSize: "14px", color: "#555", marginBottom: "8px" }}>
+          Intentionally disturbed heading hierarchy for accessibility testing.
+        </p>
+        {/* Manual review: second h1 after h2 sections — multiple/out-of-order h1 */}
+        <h1>Disturbed heading — second h1</h1>
+        {/* Manual review: skipped heading level (h1 → h4) */}
+        <h4>Skipped levels after h1</h4>
+        {/* Manual review: h3 appears after h4 (descending then ascending) */}
+        <h3>Out-of-sequence h3</h3>
+      </section>
+
+      <section style={{ marginTop: "20px" }}>
         <h2>Keyboard Order</h2>
         {/* Manual review: positive tabindex creates confusing keyboard order */}
         <button type="button" tabIndex={4} style={{ marginRight: "8px" }}>
@@ -218,28 +231,52 @@ const TestingAgo = () => {
 
       <section style={{ marginTop: "20px" }}>
         <h2>Redundant Alt Text</h2>
-        {/* Intentional issue: alt text redundantly announces "image of/picture of" */}
-        <img
-          src="/test/1.jpg"
-          alt="Image of a photo of test image 1"
-          style={{ width: "120px", height: "auto" }}
-        />
+        <p style={{ fontSize: "14px", color: "#555", marginBottom: "8px" }}>
+          axe rule:{" "}
+          <a href="https://dequeuniversity.com/rules/axe/4.8/image-redundant-alt">
+            image-redundant-alt
+          </a>
+        </p>
 
-        {/* Intentional issue: alt text duplicates the adjacent visible caption verbatim */}
-        <figure style={{ display: "inline-block", marginLeft: "8px" }}>
+        {/* Intentional issue (image-redundant-alt): img alt text duplicates the
+            link text right next to it inside the same <a>, so a screen reader
+            announces "Home Page Home Page". */}
+        <a
+          href="/"
+          style={{ display: "inline-flex", alignItems: "center", gap: "6px" }}
+        >
+          <img
+            src="/test/1.jpg"
+            alt="Home Page"
+            style={{ width: "24px", height: "24px" }}
+          />
+          Home Page
+        </a>
+
+        {/* Intentional issue (image-redundant-alt): img alt text duplicates the
+            button's visible text inside the same <button>. */}
+        <button
+          type="button"
+          style={{
+            display: "inline-flex",
+            alignItems: "center",
+            gap: "6px",
+            marginLeft: "12px",
+          }}
+        >
           <img
             src="/test/2.jpeg"
-            alt="Sample test image two"
-            style={{ width: "120px", height: "auto" }}
+            alt="Submit form"
+            style={{ width: "24px", height: "24px" }}
           />
-          <figcaption>Sample test image two</figcaption>
-        </figure>
+          Submit form
+        </button>
 
-        {/* Intentional issue: alt text is just the redundant filename */}
+        {/* Intentional issue: alt text is just the uninformative filename */}
         <img
           src="/test/3.jpg"
           alt="3.jpg"
-          style={{ width: "120px", height: "auto", marginLeft: "8px" }}
+          style={{ width: "24px", height: "24px", marginLeft: "12px" }}
         />
       </section>
 
