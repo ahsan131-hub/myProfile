@@ -157,15 +157,6 @@ const TestingAgo = () => {
           style={{ display: "block", marginTop: "8px" }}
         />
 
-        {/* Manual review: visible label says one thing, accessible name says another */}
-        <button
-          type="button"
-          aria-label="Save profile"
-          style={{ marginTop: "12px", display: "block" }}
-        >
-          Delete profile
-        </button>
-
         {/* Manual review: ARIA role textbox missing accessible name */}
         <div
           role="textbox"
@@ -177,6 +168,45 @@ const TestingAgo = () => {
           }}
         >
           Editable bio text
+        </div>
+      </section>
+
+      <section style={{ marginTop: "20px" }}>
+        <h2>Label mismatch</h2>
+        <p style={{ fontSize: "14px", color: "#555", marginBottom: "8px" }}>
+          axe rule:{" "}
+          <a href="https://dequeuniversity.com/rules/axe/4.8/label-content-name-mismatch">
+            label-content-name-mismatch
+          </a>{" "}
+          (WCAG 2.5.3 Label in Name)
+        </p>
+
+        {/* Intentional issue (label-content-name-mismatch): visible text is
+            "Delete profile" but aria-label overrides to "Save profile". */}
+        <button
+          type="button"
+          aria-label="Save profile"
+          style={{ marginRight: "12px" }}
+        >
+          Delete profile
+        </button>
+
+        {/* Intentional issue (label-content-name-mismatch): visible text "Send"
+            is not contained in accessible name "Submit form". */}
+        <button type="button" aria-label="Submit form">
+          Send
+        </button>
+
+        {/* Intentional issue (label-content-name-mismatch): visible label text
+            "Phone" is overridden by aria-label "Mobile number". */}
+        <div style={{ marginTop: "12px" }}>
+          <label htmlFor="phoneField">Phone</label>
+          <input
+            id="phoneField"
+            type="tel"
+            aria-label="Mobile number"
+            style={{ display: "block", marginTop: "8px" }}
+          />
         </div>
       </section>
 
