@@ -20,7 +20,6 @@ const TestingAgo = () => {
   const scrollSentinelRef = useRef<HTMLDivElement>(null);
   const nextImageIndexRef = useRef(0);
   const [scrollLoadedImages, setScrollLoadedImages] = useState<string[]>([]);
-
   useEffect(() => {
     const sentinel = scrollSentinelRef.current;
     if (!sentinel) return;
@@ -349,6 +348,45 @@ const TestingAgo = () => {
             type="audio/mpeg"
           />
         </audio>
+      </section>
+
+      <section style={{ marginTop: "20px" }}>
+        <h2>Empty Alt Text</h2>
+        <p style={{ fontSize: "14px", color: "#555", marginBottom: "8px" }}>
+          axe rule:{" "}
+          <a href="https://dequeuniversity.com/rules/axe/4.8/image-alt">
+            image-alt
+          </a>{" "}
+          — informative images with empty alt text.
+        </p>
+
+        {/* Intentional issue: content images with empty alt (treated as decorative) */}
+        <div style={{ display: "flex", gap: "8px", flexWrap: "wrap" }}>
+          <img
+            src="/test/1.jpg"
+            alt=""
+            style={{ width: "120px", height: "auto", border: "1px solid #ccc" }}
+          />
+          <img
+            src="/test/2.jpeg"
+            alt=""
+            style={{ width: "120px", height: "auto", border: "1px solid #ccc" }}
+          />
+          <img
+            src="/test/3.jpg"
+            alt=""
+            style={{ width: "120px", height: "auto", border: "1px solid #ccc" }}
+          />
+        </div>
+
+        {/* Intentional issue: linked image with empty alt — link has no accessible name */}
+        <a href="/" style={{ display: "inline-block", marginTop: "12px" }}>
+          <img
+            src="/test/1.jpg"
+            alt=""
+            style={{ width: "80px", height: "auto", border: "1px solid #ccc" }}
+          />
+        </a>
       </section>
 
       <section style={{ marginTop: "20px" }}>
