@@ -1,7 +1,10 @@
 import { useEffect, useRef, useState } from "react";
 import { Link } from "react-router-dom";
 import { buildHashRoute, useHashRoute } from "@/hooks/useHashRoute";
-import { listTestingAgoHashRoutes, TESTING_AGO_CONTENT } from "./testingAgoContent";
+import {
+  listTestingAgoHashRoutes,
+  TESTING_AGO_CONTENT,
+} from "./testingAgoContent";
 import TestingAgoHashContent from "./TestingAgoHashContent";
 
 /** Free photos via Lorem Picsum (https://picsum.photos) — unique seed per load */
@@ -108,11 +111,18 @@ const TestingAgo = () => {
         </a>
         <a
           href="/"
-          style={{ color: "#1d4ed8", textDecoration: "none", marginRight: "12px" }}
+          style={{
+            color: "#1d4ed8",
+            textDecoration: "none",
+            marginRight: "12px",
+          }}
         >
           Home
         </a>
-        <Link to="/testing-ago" style={{ color: "#1d4ed8", textDecoration: "none" }}>
+        <Link
+          to="/testing-ago"
+          style={{ color: "#1d4ed8", textDecoration: "none" }}
+        >
           Testing AGO
         </Link>
       </section>
@@ -121,7 +131,8 @@ const TestingAgo = () => {
         <h2>Hash routes</h2>
         <p style={{ fontSize: "14px", color: "#555", marginBottom: "8px" }}>
           Content changes from the URL hash on <code>/testing-ago</code> — e.g.{" "}
-          <code>/testing-ago#/openai</code> or <code>/testing-ago#/claude</code>.
+          <code>/testing-ago#/openai</code> or <code>/testing-ago#/claude</code>
+          .
         </p>
         <nav style={{ display: "flex", gap: "12px", flexWrap: "wrap" }}>
           {Object.entries(TESTING_AGO_CONTENT).map(([slug, node]) => (
@@ -221,6 +232,87 @@ const TestingAgo = () => {
         <h4>Skipped levels after h1</h4>
         {/* Manual review: h3 appears after h4 (descending then ascending) */}
         <h3>Out-of-sequence h3</h3>
+      </section>
+
+      <section style={{ marginTop: "20px" }}>
+        <h2>Tabs</h2>
+        <p style={{ fontSize: "14px", color: "#555", marginBottom: "8px" }}>
+          Intentional tab role and accessible-name issues for manual review and
+          automated checks.
+        </p>
+
+        {/* Manual review: tablist has no accessible name (no aria-label / aria-labelledby) */}
+        <div
+          role="tablist"
+          style={{ display: "flex", gap: "8px", marginBottom: "12px" }}
+        >
+          {/* Intentional issue: role="tab" with no accessible name — icon only */}
+          <div
+            role="tab"
+            tabIndex={0}
+            aria-selected="true"
+            style={{ padding: "8px", border: "1px solid #ccc" }}
+          >
+            <img
+              src="/test/1.jpg"
+              alt=""
+              style={{ width: "20px", height: "20px" }}
+            />
+          </div>
+
+          {/* Intentional issue: empty aria-label suppresses visible tab text */}
+          <div
+            role="tab"
+            tabIndex={-1}
+            aria-selected="false"
+            aria-label=""
+            style={{ padding: "8px", border: "1px solid #ccc" }}
+          >
+            Settings
+          </div>
+
+          {/* Intentional issue: visible text "Profile" does not match aria-label "Account" */}
+          <div
+            role="tab"
+            tabIndex={-1}
+            aria-selected="false"
+            aria-label="Account"
+            style={{ padding: "8px", border: "1px solid #ccc" }}
+          >
+            Profile
+          </div>
+
+          {/* Intentional issue: aria-labelledby points to a missing element */}
+          <div
+            role="tab"
+            tabIndex={-1}
+            aria-selected="false"
+            aria-labelledby="missing-tab-label"
+            style={{ padding: "8px", border: "1px solid #ccc" }}
+          >
+            ···
+          </div>
+        </div>
+
+        <div
+          role="tabpanel"
+          id="demo-tabpanel"
+          style={{ padding: "12px", border: "1px solid #ddd" }}
+        >
+          Tab panel content (first tab selected).
+        </div>
+
+        {/* Manual review: role="tab" outside tablist — orphaned tab with no name */}
+        <div
+          role="tab"
+          tabIndex={0}
+          style={{
+            marginTop: "12px",
+            padding: "8px",
+            border: "1px dashed #999",
+            display: "inline-block",
+          }}
+        />
       </section>
 
       <section style={{ marginTop: "20px" }}>
