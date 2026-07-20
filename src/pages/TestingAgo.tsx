@@ -236,74 +236,62 @@ const TestingAgo = () => {
       <section style={{ marginTop: "20px" }}>
         <h2>Tabs</h2>
         <p style={{ fontSize: "14px", color: "#555", marginBottom: "8px" }}>
-          Intentional tab role and accessible-name issues for manual review and
-          automated checks.
+          axe rule:{" "}
+          <a href="https://dequeuniversity.com/rules/axe/4.12/aria-tab-name">
+            aria-tab-name
+          </a>{" "}
+          — ARIA tab nodes must have an accessible name (WCAG 4.1.2).
         </p>
 
-        {/* Manual review: tablist has no accessible name (no aria-label / aria-labelledby) */}
         <div
           role="tablist"
-          style={{ display: "flex", gap: "8px", marginBottom: "12px" }}
+          style={{ display: "flex", gap: "8px", flexWrap: "wrap", marginBottom: "12px" }}
         >
-          {/* Intentional issue: role="tab" with no accessible name — icon only */}
+          {/* Intentional issue (aria-tab-name): empty tab with no inner text */}
           <div
             role="tab"
+            id="aria-tab-empty"
             tabIndex={0}
             aria-selected="true"
-            style={{ padding: "8px", border: "1px solid #ccc" }}
-          >
-            <img
-              src="/test/1.jpg"
-              alt=""
-              style={{ width: "20px", height: "20px" }}
-            />
-          </div>
+            style={{ padding: "8px", border: "1px solid #ccc", minWidth: "48px" }}
+          />
 
-          {/* Intentional issue: empty aria-label suppresses visible tab text */}
+          {/* Intentional issue (aria-tab-name): non-empty aria-label="" */}
           <div
             role="tab"
+            id="aria-tab-alempty"
             tabIndex={-1}
             aria-selected="false"
             aria-label=""
             style={{ padding: "8px", border: "1px solid #ccc" }}
-          >
-            Settings
-          </div>
+          />
 
-          {/* Intentional issue: visible text "Profile" does not match aria-label "Account" */}
+          {/* Intentional issue (aria-tab-name): aria-labelledby points to missing element */}
           <div
             role="tab"
+            id="aria-tab-albmissing"
             tabIndex={-1}
             aria-selected="false"
-            aria-label="Account"
+            aria-labelledby="nonexistent"
             style={{ padding: "8px", border: "1px solid #ccc" }}
-          >
-            Profile
-          </div>
+          />
 
-          {/* Intentional issue: aria-labelledby points to a missing element */}
+          {/* Intentional issue (aria-tab-name): aria-labelledby points to empty element */}
           <div
             role="tab"
+            id="aria-tab-albempty"
             tabIndex={-1}
             aria-selected="false"
-            aria-labelledby="missing-tab-label"
+            aria-labelledby="emptydiv"
             style={{ padding: "8px", border: "1px solid #ccc" }}
-          >
-            ···
-          </div>
+          />
         </div>
+        <div id="emptydiv" />
 
-        <div
-          role="tabpanel"
-          id="demo-tabpanel"
-          style={{ padding: "12px", border: "1px solid #ddd" }}
-        >
-          Tab panel content (first tab selected).
-        </div>
-
-        {/* Manual review: role="tab" outside tablist — orphaned tab with no name */}
+        {/* Intentional issue (aria-tab-name): icon-only tab — no discernible text */}
         <div
           role="tab"
+          id="aria-tab-icon-only"
           tabIndex={0}
           style={{
             marginTop: "12px",
@@ -311,7 +299,21 @@ const TestingAgo = () => {
             border: "1px dashed #999",
             display: "inline-block",
           }}
-        />
+        >
+          <img
+            src="/test/1.jpg"
+            alt=""
+            style={{ width: "20px", height: "20px" }}
+          />
+        </div>
+
+        <div
+          role="tabpanel"
+          id="demo-tabpanel"
+          style={{ padding: "12px", border: "1px solid #ddd", marginTop: "12px" }}
+        >
+          Tab panel content (first tab selected).
+        </div>
       </section>
 
       <section style={{ marginTop: "20px" }}>
