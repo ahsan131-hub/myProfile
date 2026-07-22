@@ -80,13 +80,7 @@ const TestingAgo = () => {
   }, []);
 
   return (
-    <main style={{ fontFamily: "Arial, sans-serif", padding: "20px" }}>
-      {/* Manual review: incorrect language declaration for English content */}
-      <section lang="es">
-        <h1>Testing AGO - Manual Review Demo</h1>
-        <p>This page intentionally includes accessibility problems.</p>
-      </section>
-
+    <>
       {/* Manual review: skip link points to a missing/non-focusable target */}
       <a
         href="#missing-main"
@@ -94,6 +88,38 @@ const TestingAgo = () => {
       >
         Skip to content
       </a>
+
+      {/* Intentional issue (region): page content outside any landmark */}
+      <div
+        style={{
+          fontFamily: "Arial, sans-serif",
+          padding: "20px 20px 0",
+          borderBottom: "1px dashed #c00",
+        }}
+      >
+        <p style={{ fontSize: "14px", color: "#555", marginBottom: "8px" }}>
+          axe rule:{" "}
+          <a href="https://dequeuniversity.com/rules/axe/3.0/region">
+            region
+          </a>{" "}
+          — all page content must be contained by landmarks.
+        </p>
+        <p>
+          This promo and notice sit outside{" "}
+          <code>&lt;main&gt;</code> / any landmark region.
+        </p>
+        <a href="/work" style={{ color: "#1d4ed8", marginRight: "12px" }}>
+          Unlandmarked work link
+        </a>
+        <button type="button">Unlandmarked action</button>
+      </div>
+
+      <main style={{ fontFamily: "Arial, sans-serif", padding: "20px" }}>
+        {/* Manual review: incorrect language declaration for English content */}
+        <section lang="es">
+          <h1>Testing AGO - Manual Review Demo</h1>
+          <p>This page intentionally includes accessibility problems.</p>
+        </section>
 
       <section style={{ marginTop: "20px" }}>
         <h2>Navigation</h2>
@@ -234,7 +260,7 @@ const TestingAgo = () => {
       </section>
 
       <section style={{ marginTop: "20px" }}>
-        <h2>Tabs</h2>
+        <h2>Tabs (aria-tab-name)</h2>
         <p style={{ fontSize: "14px", color: "#555", marginBottom: "8px" }}>
           axe rule:{" "}
           <a href="https://dequeuniversity.com/rules/axe/4.12/aria-tab-name">
@@ -242,78 +268,105 @@ const TestingAgo = () => {
           </a>{" "}
           — ARIA tab nodes must have an accessible name (WCAG 4.1.2).
         </p>
+        <p style={{ fontSize: "13px", color: "#666", marginBottom: "12px" }}>
+          Four incorrect patterns from the rule docs (tabs have no accessible
+          name):
+        </p>
 
-        <div
-          role="tablist"
-          style={{ display: "flex", gap: "8px", flexWrap: "wrap", marginBottom: "12px" }}
-        >
-          {/* Intentional issue (aria-tab-name): empty tab with no inner text */}
-          <div
-            role="tab"
-            id="aria-tab-empty"
-            tabIndex={0}
-            aria-selected="true"
-            style={{ padding: "8px", border: "1px solid #ccc", minWidth: "48px" }}
-          />
-
-          {/* Intentional issue (aria-tab-name): non-empty aria-label="" */}
-          <div
-            role="tab"
-            id="aria-tab-alempty"
-            tabIndex={-1}
-            aria-selected="false"
-            aria-label=""
-            style={{ padding: "8px", border: "1px solid #ccc" }}
-          />
-
-          {/* Intentional issue (aria-tab-name): aria-labelledby points to missing element */}
-          <div
-            role="tab"
-            id="aria-tab-albmissing"
-            tabIndex={-1}
-            aria-selected="false"
-            aria-labelledby="nonexistent"
-            style={{ padding: "8px", border: "1px solid #ccc" }}
-          />
-
-          {/* Intentional issue (aria-tab-name): aria-labelledby points to empty element */}
-          <div
-            role="tab"
-            id="aria-tab-albempty"
-            tabIndex={-1}
-            aria-selected="false"
-            aria-labelledby="emptydiv"
-            style={{ padding: "8px", border: "1px solid #ccc" }}
-          />
-        </div>
-        <div id="emptydiv" />
-
-        {/* Intentional issue (aria-tab-name): icon-only tab — no discernible text */}
+        {/* Incorrect: empty tab — no inner text */}
         <div
           role="tab"
-          id="aria-tab-icon-only"
-          tabIndex={0}
+          id="empty"
           style={{
-            marginTop: "12px",
-            padding: "8px",
-            border: "1px dashed #999",
             display: "inline-block",
+            marginRight: "8px",
+            marginBottom: "8px",
+            padding: "10px 16px",
+            border: "2px solid #c00",
+            background: "#fee",
+            minWidth: "64px",
+            minHeight: "36px",
+            verticalAlign: "middle",
+          }}
+        ></div>
+
+        {/* Incorrect: empty aria-label */}
+        <div
+          role="tab"
+          id="alempty"
+          aria-label=""
+          style={{
+            display: "inline-block",
+            marginRight: "8px",
+            marginBottom: "8px",
+            padding: "10px 16px",
+            border: "2px solid #c00",
+            background: "#fee",
+            minWidth: "64px",
+            minHeight: "36px",
+            verticalAlign: "middle",
+          }}
+        ></div>
+
+        {/* Incorrect: aria-labelledby points to nonexistent id */}
+        <div
+          role="tab"
+          id="albmissing"
+          aria-labelledby="nonexistent"
+          style={{
+            display: "inline-block",
+            marginRight: "8px",
+            marginBottom: "8px",
+            padding: "10px 16px",
+            border: "2px solid #c00",
+            background: "#fee",
+            minWidth: "64px",
+            minHeight: "36px",
+            verticalAlign: "middle",
+          }}
+        ></div>
+
+        {/* Incorrect: aria-labelledby points to empty element */}
+        <div
+          role="tab"
+          id="albempty"
+          aria-labelledby="emptydiv"
+          style={{
+            display: "inline-block",
+            marginRight: "8px",
+            marginBottom: "8px",
+            padding: "10px 16px",
+            border: "2px solid #c00",
+            background: "#fee",
+            minWidth: "64px",
+            minHeight: "36px",
+            verticalAlign: "middle",
+          }}
+        ></div>
+        <div id="emptydiv"></div>
+
+        <ul
+          style={{
+            fontSize: "13px",
+            color: "#555",
+            marginTop: "8px",
+            paddingLeft: "18px",
           }}
         >
-          <img
-            src="/test/1.jpg"
-            alt=""
-            style={{ width: "20px", height: "20px" }}
-          />
-        </div>
-
-        <div
-          role="tabpanel"
-          id="demo-tabpanel"
-          style={{ padding: "12px", border: "1px solid #ddd", marginTop: "12px" }}
-        >
-          Tab panel content (first tab selected).
-        </div>
+          <li>
+            <code>#empty</code> — empty tab, no text
+          </li>
+          <li>
+            <code>#alempty</code> — <code>aria-label=&quot;&quot;</code>
+          </li>
+          <li>
+            <code>#albmissing</code> — <code>aria-labelledby=&quot;nonexistent&quot;</code>
+          </li>
+          <li>
+            <code>#albempty</code> — <code>aria-labelledby=&quot;emptydiv&quot;</code>{" "}
+            (empty target)
+          </li>
+        </ul>
       </section>
 
       <section style={{ marginTop: "20px" }}>
@@ -517,7 +570,26 @@ const TestingAgo = () => {
           aria-hidden="true"
         />
       </section>
-    </main>
+      </main>
+
+      {/* Intentional issue (region): more content outside landmarks after main */}
+      <div
+        style={{
+          fontFamily: "Arial, sans-serif",
+          padding: "16px 20px",
+          borderTop: "1px dashed #c00",
+        }}
+      >
+        <p>
+          Footer-like content without{" "}
+          <code>&lt;footer&gt;</code> or{" "}
+          <code>role=&quot;contentinfo&quot;</code>.
+        </p>
+        <a href="/" style={{ color: "#1d4ed8" }}>
+          Unlandmarked home link
+        </a>
+      </div>
+    </>
   );
 };
 
