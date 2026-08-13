@@ -9,7 +9,8 @@ import NotFound from "./pages/NotFound";
 import Index from "./pages/Index";
 import Work from "./pages/Work";
 import TestingAgo from "./pages/TestingAgo";
-import EasyLanguage from "./pages/EasyLanguage";
+import EasyLanguageEN from "./pages/EasyLanguageEN";
+import EasyLanguageDE from "./pages/EasyLanguageDE";
 const queryClient = new QueryClient();
 
 const App = () => (
@@ -23,7 +24,8 @@ const App = () => (
             <Route path="/" element={<Index />} />
             <Route path="/work" element={<Work />} />
             <Route path="/testing-ago" element={<TestingAgo />} />
-            <Route path="/easy-language" element={<EasyLanguage />} />
+            <Route path="/en/lechte-sprache" element={<EasyLanguageEN />} />
+            <Route path="/de/lechte-sprache" element={<EasyLanguageDE />} />
             {/* <Route path="/" element={<Museum />} /> */}
             {/* ADD ALL CUSTOM ROUTES ABOVE THE CATCH-ALL "*" ROUTE */}
             <Route path="*" element={<NotFound />} />
